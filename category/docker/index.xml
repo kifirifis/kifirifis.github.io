@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker | Home</title>
+    <link>https://github.com/kifirifis/kifirifis.github.io/category/docker/</link>
+      <atom:link href="https://github.com/kifirifis/kifirifis.github.io/category/docker/index.xml" rel="self" type="application/rss+xml" />
+    <description>Docker</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://github.com/kifirifis/kifirifis.github.io/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_512x512_fill_lanczos_center_2.png</url>
+      <title>Docker</title>
+      <link>https://github.com/kifirifis/kifirifis.github.io/category/docker/</link>
+    </image>
+    
+    <item>
+      <title>Alojar apps de Shiny con Docker en tu pagina web</title>
+      <link>https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</link>
+      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</guid>
+      <description>
+&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;el servidor de shiny&lt;/a&gt; desde RStudio y con un solo click es posible subirlas. Pero la versión gratuita tiene una limitación y es que solo permite utilizar la app 25 horas al mes, y ese tiempo se pasa en un santiamén. Buscando alguna solución he navegado bastantes horas por internet y he encontrado partes de respuestas en todos lados. Mi intención con esta entrada es poner en orden toda esa información y de paso dejar constancia de como lo he hecho para que no se me olvide en el futuro.&lt;/p&gt;
+&lt;p&gt;El objetivo es meter la aplicación de shiny en un contenedor &lt;a href=&#34;https://es.wikipedia.org/wiki/Docker_(software)&#34;&gt;docker&lt;/a&gt;, en el servidor remoto instalar docker y desde el servidor levantar la aplicación. Todo esto desde windows 10 utilizando &lt;a href=&#34;https://rstudio.com/&#34;&gt;RStudio&lt;/a&gt;, &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Vscode&lt;/a&gt; y &lt;a href=&#34;https://www.putty.org/&#34;&gt;Putty&lt;/a&gt;, este último para gestionar las claves ssh.&lt;/p&gt;
+&lt;p&gt;Doy por sentado que ya está instalado R, RStudio y Vscode en Windows 10.&lt;/p&gt;
+&lt;p&gt;La estructura de la carpeta es la siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+-- dockerfile
+\-- shinyapps
+    +-- app.R
+    +-- datos.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;paso-0&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paso 0&lt;/h2&gt;
+&lt;p&gt;Hacer una aplicación de shiny. En esta entrada no lo explico pero se puede seguir el siguiente tutorial: &lt;a href=&#34;https://shiny.rstudio.com/tutorial/&#34;&gt;enlace&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Si no tienes una aplicación lista en este momento puedes descargar mi script de la &lt;a href=&#34;app.R&#34; download&gt;app.R&lt;/a&gt; y los &lt;a href=&#34;datos.csv&#34; download&gt;datos.csv&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paso-1.-instalar-docker&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paso 1. Instalar Docker&lt;/h2&gt;
+&lt;p&gt;Antes de instalar Docker Desktop en Windows 10 la primera vez, se tiene que permitir la virtualización desde la BIOS e instalar el núcleo de Linux. Yo seguí los pasos de este &lt;a href=&#34;https://docs.docker.com/docker-for-windows/install-windows-home/&#34;&gt;enlace&lt;/a&gt;, después instalé Docker Desktop desde este otro &lt;a href=&#34;https://hub.docker.com/editions/community/docker-ce-desktop-windows&#34;&gt;enlace&lt;/a&gt;. Esto me llevó un buen rato porque nunca me meto en la Bios de mi computadora.&lt;/p&gt;
+&lt;p&gt;Podemos comprobar si nuestra instalación tuvo éxito poniendo lo siguiente en la terminal de windows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;captura1.PNG&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paso-2.-instalar-plugin-de-docker-en-vscode&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paso 2. Instalar plugin de docker en Vscode&lt;/h2&gt;
+&lt;p&gt;Ahora que está funcionando docker, instala el plugin de docker en vscode.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;captura2.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Y a mayores, aunque no es necesario, puedes instalar este otro plugin que resulta muy útil:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;captura3.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Podemos también probar que está funcionando docker desde la terminal de Vscode: &lt;code&gt;ctrl + shift + P --&amp;gt; View:Toggle Integrated Terminal --&amp;gt; docker --version&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;paso-2.1-opcional&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Paso 2.1 (opcional)&lt;/h4&gt;
+&lt;p&gt;Crear una cuenta en &lt;a href=&#34;https://hub.docker.com/&#34;&gt;docker hub&lt;/a&gt;. Esto nos va ayudar a traer la imagen desde el repositorio de dockerhub al servidor. El repositorio es público así que si no queremos utilizar esta opción podemos guardar el contenedor en un .tar y compartir simplemente el archivo (lo explico después).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paso-3.-crear-la-imagen-de-la-aplicación&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paso 3. Crear la imagen de la aplicación&lt;/h2&gt;
+&lt;div id=&#34;dockerfile&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Dockerfile&lt;/h3&gt;
+&lt;p&gt;El dockerfile es un script que le da las instrucciones a docker para crear la imagen de la app. Usuarios más avanzados utilizan un archivo &lt;code&gt;docker-compose.yml&lt;/code&gt; para darle instrucciones al orquestador &lt;code&gt;docker compose&lt;/code&gt; u otro tipo de archivos para distintos &lt;a href=&#34;https://www.campusmvp.es/recursos/post/las-10-herramientas-mas-importantes-para-orquestacion-de-contenedores-docker.aspx&#34;&gt;orquestadores&lt;/a&gt;. Además también sería posible utilizar otros archivos del tipo &lt;code&gt;makefile&lt;/code&gt;, &lt;code&gt;shiny-server.conf&lt;/code&gt; o &lt;code&gt;shiny-server.sh&lt;/code&gt; etc., para hacer módulos de instrucciones. Pero por el momento vamos a la opción sencilla.&lt;/p&gt;
+&lt;p&gt;El dockerfile que yo utilicé es el siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Instalar servidor de shiny con rocker
+FROM rocker/shiny-verse:3.5.0
+
+RUN apt-get update &amp;amp;&amp;amp; apt-get install libcurl4-openssl-dev libv8-3.14-dev -y &amp;amp;&amp;amp;\
+  mkdir -p /var/lib/shiny-server/bookmarks/shiny
+
+# Bajar e instalar las librerías de R
+RUN R -e &amp;quot;install.packages(c(&amp;#39;shinythemes&amp;#39;, &amp;#39;DT&amp;#39;, &amp;#39;shinydashboard&amp;#39;, &amp;#39;shinyjs&amp;#39;, &amp;#39;V8&amp;#39;, &amp;#39;ggrepel&amp;#39;))&amp;quot;
+
+# Copiar la app a la imagen
+COPY shinyapps /srv/shiny-server/
+
+# Copiar configuración del servidor shiny
+COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
+
+# Hacer todas las apps leíbles (solves issue when dev in Windows, but building in Ubuntu)
+RUN chmod -R 755 /srv/shiny-server/
+
+# Indicar el puerto disponible para shiny
+EXPOSE 3838
+
+# Copiar donde poner los logfiles
+COPY shiny-server.sh /usr/bin/shiny-server.sh
+
+# Correr la aplicación
+CMD [&amp;quot;/usr/bin/shiny-server.sh&amp;quot;] 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si quieres puedes descargarlo &lt;a href=&#34;dockerfile&#34; download&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Instalar servidor de shiny con rocker
+FROM rocker/shiny-verse:3.5.0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Todos los dockerfiles empiezan con &lt;code&gt;FROM&lt;/code&gt;. En este caso lo que le decimos a docker es que utilice la imagen que está en el dockerhub como &lt;a href=&#34;https://hub.docker.com/r/rocker/shiny-verse&#34;&gt;rocker/shiny-verse&lt;/a&gt; etiquetada como la versión 3.5.0. Utilizo esta versión porque me funcionó bien. Si no utilizo la etiqueta &lt;code&gt;3.5.0&lt;/code&gt;, por defecto descarga la última versión &lt;code&gt;latest&lt;/code&gt;. Puedes saber más del proyecto Rocker en este &lt;a href=&#34;https://www.rocker-project.org/&#34;&gt;enlace&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Instalar dependencias de Linux
+RUN apt-get update &amp;amp;&amp;amp; apt-get install libcurl4-openssl-dev libv8-3.14-dev -y &amp;amp;&amp;amp;\
+  mkdir -p /var/lib/shiny-server/bookmarks/shiny&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Instalo las dependencias de Linux utilizando el comando &lt;code&gt;apt-get&lt;/code&gt; que para los que utilicen Linux es muy familiar.
+Aquí tienes una breve descripción de las librerías:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://packages.debian.org/jessie/libcurl4-openssl-dev&#34;&gt;libcurl4-openssl-dev&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://packages.debian.org/stretch/libv8-3.14-dev&#34;&gt;libv8-3.14-dev&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Algunos comandos de Linux como &lt;code&gt;-y&lt;/code&gt; o &lt;code&gt;-p&lt;/code&gt; y muchos más los aprendí (a marchas forzadas) con el libro &lt;a href=&#34;https://books.google.es/books/about/The_Linux_Command_Line.html?id=OCFKdl3wEDIC&amp;amp;redir_esc=y&#34;&gt;The Linux Command Line&lt;/a&gt; que convenientemente sabrás encontrar, o algún otro documento similar si buscas un poco.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Bajar e instalar las librerías de R
+RUN R -e &amp;quot;install.packages(c(&amp;#39;shinythemes&amp;#39;, &amp;#39;DT&amp;#39;, &amp;#39;shinydashboard&amp;#39;, &amp;#39;shinyjs&amp;#39;, &amp;#39;V8&amp;#39;, &amp;#39;ggrepel&amp;#39;))&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Estas son librerías de R de las que depende la app. Instala las que le hagan falta a tu app
+. En particular la librería &lt;a href=&#34;https://www.google.com/search?q=shinyjs+package&amp;amp;rlz=1C1CHBF_esES872ES872&amp;amp;oq=shinyjs+&amp;amp;aqs=chrome.0.69i59j69i57j0l4j69i60l2.8335j0j4&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&#34;&gt;shinyjs&lt;/a&gt; y &lt;a href=&#34;https://cran.r-project.org/web/packages/V8/index.html&#34;&gt;V8&lt;/a&gt; son necesarias al estar montando la app sobre Debian/Ubuntu así que mejor por si las dudas deberías incluírlas.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Hacer todas las apps leíbles
+RUN chmod -R 755 /srv/shiny-server/&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Resuelve los conflictos específicos de construir la imagen desde windows sobre Ubuntu o Debian. Encontré esta línea de código en un foro, después de que fallara la construcción de la imagen varias veces.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Indicar el puerto disponible para shiny
+EXPOSE 80&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Este es un puerto estándar para el servidor de shiny. En la red encontré varios ejemplos en los que utilizan el puerto 3838 pero por algún motivo a mi no me funcionaba así que buscando la opinión de otros usuarios de docker en &lt;a href=&#34;https://stackoverflow.com/questions/tagged/docker+shiny&#34;&gt;stackoverflow&lt;/a&gt; pude encontrar esta alternativa. Es también muy útil el documento guía de configuración del servidor de &lt;a href=&#34;https://docs.rstudio.com/shiny-server/&#34;&gt;Shiny&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Copiar donde poner los logfiles
+COPY shiny-server.sh /usr/bin/shiny-server.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si la aplicación falla en el servidor entonces podemos depurar más fácilmente.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Correr la aplicación
+CMD [&amp;quot;/usr/bin/shiny-server.sh&amp;quot;] &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Por último se incluye esta orden para indicarle a Docker que corra la aplicación.&lt;/p&gt;
+&lt;div id=&#34;generar-la-imagen&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Generar la imagen&lt;/h4&gt;
+&lt;p&gt;Desde la terminal de Vscode ejecutamos la siguiente orden:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker build -t miapp:etiqueta .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El espacio y el punto después de &lt;code&gt;miapp:etiqueta .&lt;/code&gt; no es una errata (yo creía que sí la primera vez que lo ví).
+Este proceso tarda un poco dependiendo de tu computadora.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;crear-contenedor-y-correr-la-app&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Crear contenedor y correr la app&lt;/h4&gt;
+&lt;p&gt;Ahora que ya tenemos la imagen tenemos que ponerla en un contenedor, ejecutamos lo siguiente desde la consola de Vscode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker run --name=contenedor -p 80:3838 miapp:etiqueta&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si todo salio bien, poniendo &lt;code&gt;http://localhost/&lt;/code&gt; en tu navegador deberías poder ver la aplicación.&lt;/p&gt;
+&lt;p&gt;Para parar el contenedor utiliza &lt;code&gt;docker stop contenedor&lt;/code&gt; y como ya te podrás imaginar para activarlo utiliza &lt;code&gt;docker start contenedor&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Docker tiene muchos comandos como puedes ver en este &lt;a href=&#34;https://docs.docker.com/engine/reference/commandline/docker/&#34;&gt;enlace&lt;/a&gt;, por ese motivo se considera una buena práctica hacer más documentos -modulos- para poder reutilizar código.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paso-4.-subir-la-imagen-a-dockerhub-o-guardarla-.tar&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paso 4. Subir la imagen a Dockerhub o guardarla .tar&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Dockerhub&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para mi la opción que funcionó mejor fue subir mi aplicación a dockerhub. Si instalaste el plugin de docker en Vscode tienes que logearte primero a tu cuenta de dockerhub:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;captura4.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Una vez logeado creamos una imagen nueva que contenga el usuario de dockerhub&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker tag miapp:etiqueta usuariodocker/nombreapp:etiqueta&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y esta nueva imagen es la que subimos con el comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker push usuariodocker/nombreapp:etiqueta&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Es evidente que en vez de &lt;code&gt;usuariodocker&lt;/code&gt; tienes que utilizar tu usuario de dockerhub p.e. &lt;code&gt;fulanito/miapp:1.0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Posteriormente puedes borrar esta imagen hecha &lt;em&gt;ex profeso&lt;/em&gt; para subir con:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rmi -f iddelaimagen&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para encontrar el id de tu imagen puedes ejecutar &lt;code&gt;docker images ls&lt;/code&gt; y copiar el id.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;.tar&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;La segunda opción es almacenar la imagen en un archivo .tar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker save -o C:/Users/.../miapp.tar miapp&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;y compartir la imagen con otras personas o bien subirla directamente al servidor.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paso-5.-instalar-docker-en-el-servidor&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paso 5. Instalar docker en el servidor&lt;/h2&gt;
+&lt;p&gt;Si la aplicación está corriendo con normalidad en tu ordenador, entonces también debería de correr de la misma manera en un servidor porque todo lo que necesita para ejecutarse está dentro del contenedor. Este es precisamente el &lt;a href=&#34;https://www.campusmvp.es/recursos/post/los-beneficios-de-utilizar-docker-y-contenedores-a-la-hora-de-programar.aspx&#34;&gt;motivo por cual se utiliza docker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En este paso hay dos alternativas: En mi caso particular tengo mi página en un servidor VPS sencillo corriendo en un Debian 9 pero también probé la alternativa de &lt;a href=&#34;https://www.digitalocean.com/&#34;&gt;Digital Ocean&lt;/a&gt; que me pareció muy buena y barata.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Servidor Linux&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Desde el ssh del servidor hay que seguir los pasos de este &lt;a href=&#34;https://docs.docker.com/engine/install/debian/&#34;&gt;enlace&lt;/a&gt;. No debería haber muchos problemas para instalarlo. Una vez realizada la instalación podemos comprobar que el motor de docker está funcionando poniendo el comando &lt;code&gt;docker --version&lt;/code&gt; o bien &lt;code&gt;sudo docker run hello-world&lt;/code&gt;. Este último descarga un contenedor que imprime la frase “hello world”.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Digital Ocean&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Esta es una de las alternativas que está circulando mucho por la red y realmente es barata y para aplicaciones no muy pesadas va perfectamente. Por 5 euros al mes se puede contratar un “droplet” y alojar nuestro contenedor ahí. Las instrucciones para preparar el entorno las encontré en este &lt;a href=&#34;https://www.youtube.com/watch?v=JFNMHV5J9qM&#34;&gt;enlace&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paso-6.-correr-imagen-de-la-app-en-el-servidor&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paso 6. Correr imagen de la app en el servidor&lt;/h2&gt;
+&lt;p&gt;Este es el punto dónde es conveniente instalar &lt;a href=&#34;https://www.putty.org/&#34;&gt;PuTTY&lt;/a&gt; para poder levantar los contenedores desde local. Las instrucciones para descargar y comunicarse las encontré en este &lt;a href=&#34;https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/putty/&#34;&gt;enlace&lt;/a&gt; de Digital Ocean, pero bien valen para cualquier otro servidor.&lt;/p&gt;
+&lt;p&gt;Una vez que hemos descargado y configurado PuTTY siguiendo las instrucciones del anterior enlace tenemos que alojar la imagen de la app en el servidor. Aquí tenemos dos opciones: i) Jalar la imagen desde dockerhub que subimos previamente ó ii) subir manualmente el archivo .tar.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Desde Dockerhub&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Desde la consola de PuTTy y lógicamente conectados al servidor jalamos la imagen desde dockerhub con el comando.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker pull fulanito/miapp:1.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez que ya está la imagen podemos correrla con&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker run --name=contenedor -p 80:3838 miapp:etiqueta&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez está activo el contenedor podemos ya acceder a la IP correspondiente a tu servidor o al de digital ocean y compartirlo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Desde .tar&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Podemos incluso copiar y pegar o arrastrar el .tar a nuestro servidor y utilizaremos el siguiente comando para leer:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker load miapp.tar &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;docker run --name=contenedor -p 80:3838 miapp:etiqueta&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;to-do&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;TO-DO&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Comunicación con un SLQ y con otros contenedores&lt;/li&gt;
+&lt;li&gt;Nginex y proxy Shiny&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

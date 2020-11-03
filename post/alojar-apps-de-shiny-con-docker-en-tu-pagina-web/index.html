@@ -1,0 +1,1165 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 4.8.0 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Javier Kniffki">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar el servidor de shiny desde RStudio y con un solo click es posible subirlas.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/kifirifis/kifirifis.github.io/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/kifirifis/kifirifis.github.io/css/wowchemy.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/kifirifis/kifirifis.github.io/index.webmanifest">
+  <link rel="icon" type="image/png" href="/kifirifis/kifirifis.github.io/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/kifirifis/kifirifis.github.io/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@JKniffki">
+  <meta property="twitter:creator" content="@JKniffki">
+  
+  <meta property="og:site_name" content="Home">
+  <meta property="og:url" content="https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/">
+  <meta property="og:title" content="Alojar apps de Shiny con Docker en tu pagina web | Home">
+  <meta property="og:description" content="Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar el servidor de shiny desde RStudio y con un solo click es posible subirlas."><meta property="og:image" content="https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/featured.jpg">
+  <meta property="twitter:image" content="https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-06-17T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-06-17T20:37:26&#43;02:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/"
+  },
+  "headline": "Alojar apps de Shiny con Docker en tu pagina web",
+  
+  "image": [
+    "https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/featured.jpg"
+  ],
+  
+  "datePublished": "2020-06-17T00:00:00Z",
+  "dateModified": "2020-06-17T20:37:26+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Javier Kniffki"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Home",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://github.com/kifirifis/kifirifis.github.io/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar el servidor de shiny desde RStudio y con un solo click es posible subirlas."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Alojar apps de Shiny con Docker en tu pagina web | Home</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" ">
+
+  
+  
+  
+  
+    <script>const isSiteThemeDark = false;</script>
+  
+  
+  <script src="/kifirifis/kifirifis.github.io/js/load-theme.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/kifirifis/kifirifis.github.io/">Home</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/kifirifis/kifirifis.github.io/">Home</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/kifirifis/kifirifis.github.io/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Alojar apps de Shiny con Docker en tu pagina web</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Jun 17, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/kifirifis/kifirifis.github.io/category/r/">R</a>, <a href="/kifirifis/kifirifis.github.io/category/docker/">Docker</a>, <a href="/kifirifis/kifirifis.github.io/category/shiny/">Shiny</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+<link href="/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<p>Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar <a href="https://www.shinyapps.io/">el servidor de shiny</a> desde RStudio y con un solo click es posible subirlas. Pero la versión gratuita tiene una limitación y es que solo permite utilizar la app 25 horas al mes, y ese tiempo se pasa en un santiamén. Buscando alguna solución he navegado bastantes horas por internet y he encontrado partes de respuestas en todos lados. Mi intención con esta entrada es poner en orden toda esa información y de paso dejar constancia de como lo he hecho para que no se me olvide en el futuro.</p>
+<p>El objetivo es meter la aplicación de shiny en un contenedor <a href="https://es.wikipedia.org/wiki/Docker_(software)">docker</a>, en el servidor remoto instalar docker y desde el servidor levantar la aplicación. Todo esto desde windows 10 utilizando <a href="https://rstudio.com/">RStudio</a>, <a href="https://code.visualstudio.com/">Vscode</a> y <a href="https://www.putty.org/">Putty</a>, este último para gestionar las claves ssh.</p>
+<p>Doy por sentado que ya está instalado R, RStudio y Vscode en Windows 10.</p>
+<p>La estructura de la carpeta es la siguiente:</p>
+<pre><code>+-- dockerfile
+\-- shinyapps
+    +-- app.R
+    +-- datos.csv</code></pre>
+<div id="paso-0" class="section level2">
+<h2>Paso 0</h2>
+<p>Hacer una aplicación de shiny. En esta entrada no lo explico pero se puede seguir el siguiente tutorial: <a href="https://shiny.rstudio.com/tutorial/">enlace</a>.</p>
+<p>Si no tienes una aplicación lista en este momento puedes descargar mi script de la <a href="app.R" download>app.R</a> y los <a href="datos.csv" download>datos.csv</a>.</p>
+</div>
+<div id="paso-1.-instalar-docker" class="section level2">
+<h2>Paso 1. Instalar Docker</h2>
+<p>Antes de instalar Docker Desktop en Windows 10 la primera vez, se tiene que permitir la virtualización desde la BIOS e instalar el núcleo de Linux. Yo seguí los pasos de este <a href="https://docs.docker.com/docker-for-windows/install-windows-home/">enlace</a>, después instalé Docker Desktop desde este otro <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows">enlace</a>. Esto me llevó un buen rato porque nunca me meto en la Bios de mi computadora.</p>
+<p>Podemos comprobar si nuestra instalación tuvo éxito poniendo lo siguiente en la terminal de windows:</p>
+<pre><code>docker --version
+</code></pre>
+<p><img src="captura1.PNG" /></p>
+</div>
+<div id="paso-2.-instalar-plugin-de-docker-en-vscode" class="section level2">
+<h2>Paso 2. Instalar plugin de docker en Vscode</h2>
+<p>Ahora que está funcionando docker, instala el plugin de docker en vscode.</p>
+<p><img src="captura2.PNG" /></p>
+<p>Y a mayores, aunque no es necesario, puedes instalar este otro plugin que resulta muy útil:</p>
+<p><img src="captura3.PNG" /></p>
+<p>Podemos también probar que está funcionando docker desde la terminal de Vscode: <code>ctrl + shift + P --&gt; View:Toggle Integrated Terminal --&gt; docker --version</code>.</p>
+<div id="paso-2.1-opcional" class="section level4">
+<h4>Paso 2.1 (opcional)</h4>
+<p>Crear una cuenta en <a href="https://hub.docker.com/">docker hub</a>. Esto nos va ayudar a traer la imagen desde el repositorio de dockerhub al servidor. El repositorio es público así que si no queremos utilizar esta opción podemos guardar el contenedor en un .tar y compartir simplemente el archivo (lo explico después).</p>
+</div>
+</div>
+<div id="paso-3.-crear-la-imagen-de-la-aplicación" class="section level2">
+<h2>Paso 3. Crear la imagen de la aplicación</h2>
+<div id="dockerfile" class="section level3">
+<h3>Dockerfile</h3>
+<p>El dockerfile es un script que le da las instrucciones a docker para crear la imagen de la app. Usuarios más avanzados utilizan un archivo <code>docker-compose.yml</code> para darle instrucciones al orquestador <code>docker compose</code> u otro tipo de archivos para distintos <a href="https://www.campusmvp.es/recursos/post/las-10-herramientas-mas-importantes-para-orquestacion-de-contenedores-docker.aspx">orquestadores</a>. Además también sería posible utilizar otros archivos del tipo <code>makefile</code>, <code>shiny-server.conf</code> o <code>shiny-server.sh</code> etc., para hacer módulos de instrucciones. Pero por el momento vamos a la opción sencilla.</p>
+<p>El dockerfile que yo utilicé es el siguiente:</p>
+<pre><code># Instalar servidor de shiny con rocker
+FROM rocker/shiny-verse:3.5.0
+
+RUN apt-get update &amp;&amp; apt-get install libcurl4-openssl-dev libv8-3.14-dev -y &amp;&amp;\
+  mkdir -p /var/lib/shiny-server/bookmarks/shiny
+
+# Bajar e instalar las librerías de R
+RUN R -e &quot;install.packages(c(&#39;shinythemes&#39;, &#39;DT&#39;, &#39;shinydashboard&#39;, &#39;shinyjs&#39;, &#39;V8&#39;, &#39;ggrepel&#39;))&quot;
+
+# Copiar la app a la imagen
+COPY shinyapps /srv/shiny-server/
+
+# Copiar configuración del servidor shiny
+COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
+
+# Hacer todas las apps leíbles (solves issue when dev in Windows, but building in Ubuntu)
+RUN chmod -R 755 /srv/shiny-server/
+
+# Indicar el puerto disponible para shiny
+EXPOSE 3838
+
+# Copiar donde poner los logfiles
+COPY shiny-server.sh /usr/bin/shiny-server.sh
+
+# Correr la aplicación
+CMD [&quot;/usr/bin/shiny-server.sh&quot;] 
+</code></pre>
+<p>Si quieres puedes descargarlo <a href="dockerfile" download>aquí</a>.</p>
+<pre><code># Instalar servidor de shiny con rocker
+FROM rocker/shiny-verse:3.5.0</code></pre>
+<p>Todos los dockerfiles empiezan con <code>FROM</code>. En este caso lo que le decimos a docker es que utilice la imagen que está en el dockerhub como <a href="https://hub.docker.com/r/rocker/shiny-verse">rocker/shiny-verse</a> etiquetada como la versión 3.5.0. Utilizo esta versión porque me funcionó bien. Si no utilizo la etiqueta <code>3.5.0</code>, por defecto descarga la última versión <code>latest</code>. Puedes saber más del proyecto Rocker en este <a href="https://www.rocker-project.org/">enlace</a>.</p>
+<pre><code># Instalar dependencias de Linux
+RUN apt-get update &amp;&amp; apt-get install libcurl4-openssl-dev libv8-3.14-dev -y &amp;&amp;\
+  mkdir -p /var/lib/shiny-server/bookmarks/shiny</code></pre>
+<p>Instalo las dependencias de Linux utilizando el comando <code>apt-get</code> que para los que utilicen Linux es muy familiar.
+Aquí tienes una breve descripción de las librerías:</p>
+<ul>
+<li><p><a href="https://packages.debian.org/jessie/libcurl4-openssl-dev">libcurl4-openssl-dev</a></p></li>
+<li><p><a href="https://packages.debian.org/stretch/libv8-3.14-dev">libv8-3.14-dev</a></p></li>
+</ul>
+<p>Algunos comandos de Linux como <code>-y</code> o <code>-p</code> y muchos más los aprendí (a marchas forzadas) con el libro <a href="https://books.google.es/books/about/The_Linux_Command_Line.html?id=OCFKdl3wEDIC&amp;redir_esc=y">The Linux Command Line</a> que convenientemente sabrás encontrar, o algún otro documento similar si buscas un poco.</p>
+<pre><code># Bajar e instalar las librerías de R
+RUN R -e &quot;install.packages(c(&#39;shinythemes&#39;, &#39;DT&#39;, &#39;shinydashboard&#39;, &#39;shinyjs&#39;, &#39;V8&#39;, &#39;ggrepel&#39;))&quot;</code></pre>
+<p>Estas son librerías de R de las que depende la app. Instala las que le hagan falta a tu app
+. En particular la librería <a href="https://www.google.com/search?q=shinyjs+package&amp;rlz=1C1CHBF_esES872ES872&amp;oq=shinyjs+&amp;aqs=chrome.0.69i59j69i57j0l4j69i60l2.8335j0j4&amp;sourceid=chrome&amp;ie=UTF-8">shinyjs</a> y <a href="https://cran.r-project.org/web/packages/V8/index.html">V8</a> son necesarias al estar montando la app sobre Debian/Ubuntu así que mejor por si las dudas deberías incluírlas.</p>
+<pre><code># Hacer todas las apps leíbles
+RUN chmod -R 755 /srv/shiny-server/</code></pre>
+<p>Resuelve los conflictos específicos de construir la imagen desde windows sobre Ubuntu o Debian. Encontré esta línea de código en un foro, después de que fallara la construcción de la imagen varias veces.</p>
+<pre><code># Indicar el puerto disponible para shiny
+EXPOSE 80</code></pre>
+<p>Este es un puerto estándar para el servidor de shiny. En la red encontré varios ejemplos en los que utilizan el puerto 3838 pero por algún motivo a mi no me funcionaba así que buscando la opinión de otros usuarios de docker en <a href="https://stackoverflow.com/questions/tagged/docker+shiny">stackoverflow</a> pude encontrar esta alternativa. Es también muy útil el documento guía de configuración del servidor de <a href="https://docs.rstudio.com/shiny-server/">Shiny</a>.</p>
+<pre><code># Copiar donde poner los logfiles
+COPY shiny-server.sh /usr/bin/shiny-server.sh</code></pre>
+<p>Si la aplicación falla en el servidor entonces podemos depurar más fácilmente.</p>
+<pre><code># Correr la aplicación
+CMD [&quot;/usr/bin/shiny-server.sh&quot;] </code></pre>
+<p>Por último se incluye esta orden para indicarle a Docker que corra la aplicación.</p>
+<div id="generar-la-imagen" class="section level4">
+<h4>Generar la imagen</h4>
+<p>Desde la terminal de Vscode ejecutamos la siguiente orden:</p>
+<pre><code>docker build -t miapp:etiqueta .</code></pre>
+<p>El espacio y el punto después de <code>miapp:etiqueta .</code> no es una errata (yo creía que sí la primera vez que lo ví).
+Este proceso tarda un poco dependiendo de tu computadora.</p>
+</div>
+<div id="crear-contenedor-y-correr-la-app" class="section level4">
+<h4>Crear contenedor y correr la app</h4>
+<p>Ahora que ya tenemos la imagen tenemos que ponerla en un contenedor, ejecutamos lo siguiente desde la consola de Vscode:</p>
+<pre><code>docker run --name=contenedor -p 80:3838 miapp:etiqueta</code></pre>
+<p>Si todo salio bien, poniendo <code>http://localhost/</code> en tu navegador deberías poder ver la aplicación.</p>
+<p>Para parar el contenedor utiliza <code>docker stop contenedor</code> y como ya te podrás imaginar para activarlo utiliza <code>docker start contenedor</code>.</p>
+<p>Docker tiene muchos comandos como puedes ver en este <a href="https://docs.docker.com/engine/reference/commandline/docker/">enlace</a>, por ese motivo se considera una buena práctica hacer más documentos -modulos- para poder reutilizar código.</p>
+</div>
+</div>
+</div>
+<div id="paso-4.-subir-la-imagen-a-dockerhub-o-guardarla-.tar" class="section level2">
+<h2>Paso 4. Subir la imagen a Dockerhub o guardarla .tar</h2>
+<p><strong>Dockerhub</strong></p>
+<p>Para mi la opción que funcionó mejor fue subir mi aplicación a dockerhub. Si instalaste el plugin de docker en Vscode tienes que logearte primero a tu cuenta de dockerhub:</p>
+<p><img src="captura4.PNG" /></p>
+<p>Una vez logeado creamos una imagen nueva que contenga el usuario de dockerhub</p>
+<pre><code>docker tag miapp:etiqueta usuariodocker/nombreapp:etiqueta</code></pre>
+<p>Y esta nueva imagen es la que subimos con el comando:</p>
+<pre><code>docker push usuariodocker/nombreapp:etiqueta</code></pre>
+<p>Es evidente que en vez de <code>usuariodocker</code> tienes que utilizar tu usuario de dockerhub p.e. <code>fulanito/miapp:1.0</code>.</p>
+<p>Posteriormente puedes borrar esta imagen hecha <em>ex profeso</em> para subir con:</p>
+<pre><code>docker rmi -f iddelaimagen</code></pre>
+<p>Para encontrar el id de tu imagen puedes ejecutar <code>docker images ls</code> y copiar el id.</p>
+<p><strong>.tar</strong></p>
+<p>La segunda opción es almacenar la imagen en un archivo .tar</p>
+<pre><code>docker save -o C:/Users/.../miapp.tar miapp</code></pre>
+<p>y compartir la imagen con otras personas o bien subirla directamente al servidor.</p>
+</div>
+<div id="paso-5.-instalar-docker-en-el-servidor" class="section level2">
+<h2>Paso 5. Instalar docker en el servidor</h2>
+<p>Si la aplicación está corriendo con normalidad en tu ordenador, entonces también debería de correr de la misma manera en un servidor porque todo lo que necesita para ejecutarse está dentro del contenedor. Este es precisamente el <a href="https://www.campusmvp.es/recursos/post/los-beneficios-de-utilizar-docker-y-contenedores-a-la-hora-de-programar.aspx">motivo por cual se utiliza docker</a>.</p>
+<p>En este paso hay dos alternativas: En mi caso particular tengo mi página en un servidor VPS sencillo corriendo en un Debian 9 pero también probé la alternativa de <a href="https://www.digitalocean.com/">Digital Ocean</a> que me pareció muy buena y barata.</p>
+<p><strong>Servidor Linux</strong></p>
+<p>Desde el ssh del servidor hay que seguir los pasos de este <a href="https://docs.docker.com/engine/install/debian/">enlace</a>. No debería haber muchos problemas para instalarlo. Una vez realizada la instalación podemos comprobar que el motor de docker está funcionando poniendo el comando <code>docker --version</code> o bien <code>sudo docker run hello-world</code>. Este último descarga un contenedor que imprime la frase “hello world”.</p>
+<p><strong>Digital Ocean</strong></p>
+<p>Esta es una de las alternativas que está circulando mucho por la red y realmente es barata y para aplicaciones no muy pesadas va perfectamente. Por 5 euros al mes se puede contratar un “droplet” y alojar nuestro contenedor ahí. Las instrucciones para preparar el entorno las encontré en este <a href="https://www.youtube.com/watch?v=JFNMHV5J9qM">enlace</a>.</p>
+</div>
+<div id="paso-6.-correr-imagen-de-la-app-en-el-servidor" class="section level2">
+<h2>Paso 6. Correr imagen de la app en el servidor</h2>
+<p>Este es el punto dónde es conveniente instalar <a href="https://www.putty.org/">PuTTY</a> para poder levantar los contenedores desde local. Las instrucciones para descargar y comunicarse las encontré en este <a href="https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/putty/">enlace</a> de Digital Ocean, pero bien valen para cualquier otro servidor.</p>
+<p>Una vez que hemos descargado y configurado PuTTY siguiendo las instrucciones del anterior enlace tenemos que alojar la imagen de la app en el servidor. Aquí tenemos dos opciones: i) Jalar la imagen desde dockerhub que subimos previamente ó ii) subir manualmente el archivo .tar.</p>
+<p><strong>Desde Dockerhub</strong></p>
+<p>Desde la consola de PuTTy y lógicamente conectados al servidor jalamos la imagen desde dockerhub con el comando.</p>
+<pre><code>docker pull fulanito/miapp:1.0
+</code></pre>
+<p>Una vez que ya está la imagen podemos correrla con</p>
+<pre><code>docker run --name=contenedor -p 80:3838 miapp:etiqueta</code></pre>
+<p>Una vez está activo el contenedor podemos ya acceder a la IP correspondiente a tu servidor o al de digital ocean y compartirlo.</p>
+<p><strong>Desde .tar</strong></p>
+<p>Podemos incluso copiar y pegar o arrastrar el .tar a nuestro servidor y utilizaremos el siguiente comando para leer:</p>
+<pre><code>docker load miapp.tar </code></pre>
+<pre><code>docker run --name=contenedor -p 80:3838 miapp:etiqueta</code></pre>
+</div>
+<div id="to-do" class="section level2">
+<h2>TO-DO</h2>
+<ul>
+<li>Comunicación con un SLQ y con otros contenedores</li>
+<li>Nginex y proxy Shiny</li>
+</ul>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/&amp;text=Alojar%20apps%20de%20Shiny%20con%20Docker%20en%20tu%20pagina%20web" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/&amp;t=Alojar%20apps%20de%20Shiny%20con%20Docker%20en%20tu%20pagina%20web" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Alojar%20apps%20de%20Shiny%20con%20Docker%20en%20tu%20pagina%20web&amp;body=https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/&amp;title=Alojar%20apps%20de%20Shiny%20con%20Docker%20en%20tu%20pagina%20web" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Alojar%20apps%20de%20Shiny%20con%20Docker%20en%20tu%20pagina%20web%20https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/&amp;title=Alojar%20apps%20de%20Shiny%20con%20Docker%20en%20tu%20pagina%20web" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://github.com/kifirifis/kifirifis.github.io/"><img class="avatar mr-3 avatar-circle" src="/kifirifis/kifirifis.github.io/author/javier-kniffki/avatar_hu057e5273c8d649dc4023793b33fc36e1_1027028_270x270_fill_q90_lanczos_center.jpg" alt="Javier Kniffki"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://github.com/kifirifis/kifirifis.github.io/">Javier Kniffki</a></h5>
+      <h6 class="card-subtitle">Statistics &amp; Data Analysis in KStats®</h6>
+      <p class="card-text">My research interests include Statistics and Political Science. Use R!</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/JKniffki" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/kifirifis" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/kifirifis/kifirifis.github.io/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/kifirifis/kifirifis.github.io/post/2018-12-17-integrales-definidas-en-r/">Integrales definidas en R</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.8.0/mermaid.min.js" integrity="sha512-ja+hSBi4JDtjSqc4LTBsSwuBT3tdZ3oKYKd07lTVYmCnTCor56AnRql00ssqnTOR9Ss4gOP/ROGB3SfcJnZkeg==" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/kifirifis/kifirifis.github.io/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/kifirifis/kifirifis.github.io/js/wowchemy.min.4c2bca31150ce93c5a5e43b8a50f22fd.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    Published with
+    <a href="https://wowchemy.com" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

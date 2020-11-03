@@ -1,0 +1,49 @@
+---
+title: "Integrales definidas en R"
+author: "Javier Kniffki"
+date: 2018-12-17T21:13:14-05:00
+categories: ["R"]
+tags: ["Maths"]
+lastmod: '2020-06-17T20:37:26+02:00'
+image_preview: 'featured.jpg'
+featured: yes
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: yes
+projects: []
+---
+
+Es realmente fácil integrar en R si sabes como hacerlo. Supongamos que el tiempo de vida de una batería es una variable aleatoria con función de densidad.
+
+$$f(x) = \begin{cases} \frac{1}{5}\; \mathrm{e}^{\frac{-x}{5}} & \quad \text{si}\; x > 0 \\ 0 & \quad  \text{en otro caso} \end{cases}$$
+
+Y queremos saber la probabilidad de que se estropee antes de un año, es decir
+
+$$P(X < 1)$$
+
+Entonces tenemos que integrar
+
+$$\int_0^1 \frac{1}{5}\mathrm{e}^{\frac{-x}{5}}\mathrm{d}x$$
+
+Pues bien, para ahorrarnos tiempo lo podemos hacer en R de la siguiente manera:
+
+**Paso 1**
+
+Primero definimos la función de la integral
+
+```{r}
+integrando <- function(x) {
+        (1/5)*exp(-x/5)
+}
+```
+
+**Paso 2**
+
+Integramos la función definiendo sus límites
+
+```{r}
+integrate(integrando, lower = 0, upper = 1)
+```
+
+Y ¡listo!
