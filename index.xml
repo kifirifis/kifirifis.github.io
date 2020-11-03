@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home</title>
-    <link>https://github.com/kifirifis/kifirifis.github.io/</link>
-      <atom:link href="https://github.com/kifirifis/kifirifis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <link>/</link>
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Home</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://github.com/kifirifis/kifirifis.github.io/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_512x512_fill_lanczos_center_2.png</url>
+      <url>/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_512x512_fill_lanczos_center_2.png</url>
       <title>Home</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/</link>
+      <link>/</link>
     </image>
     
     <item>
       <title>Example Page 1</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/courses/example/example1/</link>
+      <link>/courses/example/example1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/courses/example/example1/</guid>
+      <guid>/courses/example/example1/</guid>
       <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -35,9 +35,9 @@
     
     <item>
       <title>Example Page 2</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/courses/example/example2/</link>
+      <link>/courses/example/example2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/courses/example/example2/</guid>
+      <guid>/courses/example/example2/</guid>
       <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -56,9 +56,9 @@
     
     <item>
       <title>Example Talk</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/talk/example/</link>
+      <link>/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/talk/example/</guid>
+      <guid>/talk/example/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -76,20 +76,20 @@
     
     <item>
       <title>COVID-19 Área Sanitaria de Santiago</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</link>
+      <link>/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</link>
       <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</guid>
+      <guid>/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</guid>
       <description>
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3/d3.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3-lasso/d3-lasso.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/girafe-binding/girafe.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3-lasso/d3-lasso.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/girafe-binding/girafe.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
 
 &lt;p&gt;&lt;font color=&#34;red&#34;&gt; Actualización: 03-11-2020 &lt;/font&gt;.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.&lt;/p&gt;
@@ -832,12 +832,12 @@ NO
     
     <item>
       <title>Alojar apps de Shiny con Docker en tu pagina web</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</link>
+      <link>/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</link>
       <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</guid>
+      <guid>/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</guid>
       <description>
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;el servidor de shiny&lt;/a&gt; desde RStudio y con un solo click es posible subirlas. Pero la versión gratuita tiene una limitación y es que solo permite utilizar la app 25 horas al mes, y ese tiempo se pasa en un santiamén. Buscando alguna solución he navegado bastantes horas por internet y he encontrado partes de respuestas en todos lados. Mi intención con esta entrada es poner en orden toda esa información y de paso dejar constancia de como lo he hecho para que no se me olvide en el futuro.&lt;/p&gt;
@@ -1008,9 +1008,9 @@ Este proceso tarda un poco dependiendo de tu computadora.&lt;/p&gt;
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/publication/preprint/</link>
+      <link>/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/publication/preprint/</guid>
+      <guid>/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
@@ -1022,9 +1022,9 @@ Este proceso tarda un poco dependiendo de tu computadora.&lt;/p&gt;
     
     <item>
       <title>Slides</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/slides/example/</link>
+      <link>/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/slides/example/</guid>
+      <guid>/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-academic&#34;&gt;Create slides in Markdown with Academic&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic&lt;/a&gt; | &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -1151,12 +1151,12 @@ Three
     
     <item>
       <title>Integrales definidas en R</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/post/2018-12-17-integrales-definidas-en-r/</link>
+      <link>/post/2018-12-17-integrales-definidas-en-r/</link>
       <pubDate>Mon, 17 Dec 2018 21:13:14 -0500</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/post/2018-12-17-integrales-definidas-en-r/</guid>
+      <guid>/post/2018-12-17-integrales-definidas-en-r/</guid>
       <description>
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2018-12-17-integrales-definidas-en-r/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2018-12-17-integrales-definidas-en-r/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/post/2018-12-17-integrales-definidas-en-r/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/post/2018-12-17-integrales-definidas-en-r/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Es realmente fácil integrar en R si sabes como hacerlo. Supongamos que el tiempo de vida de una batería es una variable aleatoria con función de densidad.&lt;/p&gt;
@@ -1181,17 +1181,17 @@ Three
     
     <item>
       <title>External Project</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/project/external-project/</link>
+      <link>/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/project/external-project/</guid>
+      <guid>/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Internal Project</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/project/internal-project/</link>
+      <link>/project/internal-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/project/internal-project/</guid>
+      <guid>/project/internal-project/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
 &lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
 &lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
@@ -1202,9 +1202,9 @@ Three
     
     <item>
       <title>An example journal article</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/publication/journal-article/</link>
+      <link>/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/publication/journal-article/</guid>
+      <guid>/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -1221,9 +1221,9 @@ Three
     
     <item>
       <title>An example conference paper</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/publication/conference-paper/</link>
+      <link>/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/publication/conference-paper/</guid>
+      <guid>/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.

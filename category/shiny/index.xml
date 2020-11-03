@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shiny | Home</title>
-    <link>https://github.com/kifirifis/kifirifis.github.io/category/shiny/</link>
-      <atom:link href="https://github.com/kifirifis/kifirifis.github.io/category/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <link>/category/shiny/</link>
+      <atom:link href="/category/shiny/index.xml" rel="self" type="application/rss+xml" />
     <description>Shiny</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://github.com/kifirifis/kifirifis.github.io/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_512x512_fill_lanczos_center_2.png</url>
+      <url>/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_512x512_fill_lanczos_center_2.png</url>
       <title>Shiny</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/category/shiny/</link>
+      <link>/category/shiny/</link>
     </image>
     
     <item>
       <title>Alojar apps de Shiny con Docker en tu pagina web</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</link>
+      <link>/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</link>
       <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</guid>
+      <guid>/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</guid>
       <description>
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;el servidor de shiny&lt;/a&gt; desde RStudio y con un solo click es posible subirlas. Pero la versión gratuita tiene una limitación y es que solo permite utilizar la app 25 horas al mes, y ese tiempo se pasa en un santiamén. Buscando alguna solución he navegado bastantes horas por internet y he encontrado partes de respuestas en todos lados. Mi intención con esta entrada es poner en orden toda esa información y de paso dejar constancia de como lo he hecho para que no se me olvide en el futuro.&lt;/p&gt;

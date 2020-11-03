@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R | Home</title>
-    <link>https://github.com/kifirifis/kifirifis.github.io/tag/r/</link>
-      <atom:link href="https://github.com/kifirifis/kifirifis.github.io/tag/r/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tag/r/</link>
+      <atom:link href="/tag/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Nov 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://github.com/kifirifis/kifirifis.github.io/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_512x512_fill_lanczos_center_2.png</url>
+      <url>/images/icon_hu1be70bb627f2dab25d232398915b7f30_9226_512x512_fill_lanczos_center_2.png</url>
       <title>R</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/tag/r/</link>
+      <link>/tag/r/</link>
     </image>
     
     <item>
       <title>COVID-19 Área Sanitaria de Santiago</title>
-      <link>https://github.com/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</link>
+      <link>/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</link>
       <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://github.com/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</guid>
+      <guid>/post/2020-11-01-covid-19-area-sanitaria-de-santiago/</guid>
       <description>
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3/d3.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3-lasso/d3-lasso.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/girafe-binding/girafe.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://github.com/kifirifis/kifirifis.github.io/kifirifis/kifirifis.github.io/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/d3-lasso/d3-lasso.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/ggiraphjs/ggiraphjs.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/girafe-binding/girafe.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/post/2020-11-01-covid-19-area-sanitaria-de-santiago/index_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
 
 &lt;p&gt;&lt;font color=&#34;red&#34;&gt; Actualización: 03-11-2020 &lt;/font&gt;.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.&lt;/p&gt;
