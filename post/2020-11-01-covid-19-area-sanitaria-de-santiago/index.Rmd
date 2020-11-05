@@ -20,8 +20,8 @@ Sin datos desagregados por Concello porque el SERGAS sigue sin publicarlos.
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-11-05" #para las etiquetas 
 fechasemaforo <- "2020-11-05"
-fechacentro <-   "2020-11-04"
-fechamapa <-     "2020-11-04"
+fechacentro <-   "2020-11-05"
+fechamapa <-     "2020-11-05"
 ```
 
 ```{=html}
@@ -478,7 +478,7 @@ Positivos en Centros Educativos del Área Sanitaria de Santiago a `r fechacentro
 
 Positivos en Centros Educativos del Concello de Santiago a `r fechacentro`: <font color="red"> `r santiago` </font>
 
-*Nota: Hay aulas cerradas o positivos que no están siendo reportados por el SERGAS*
+*Nota: Hay aulas cerradas y/o positivos que no están siendo reportados por el SERGAS*
 
 ```{r echo=FALSE, warning=F, message=FALSE}
 datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello == "SANTIAGO DE COMPOSTELA") %>%
