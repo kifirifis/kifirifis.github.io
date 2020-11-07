@@ -494,7 +494,7 @@ datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello ==
 
 --------------------------------------------------------
 
-Puedes consultar los Centros Educativos de otros Concellos en este [enlace](https://javier-kniffki.shinyapps.io/CentrosEduCovid/).
+Puedes consultar los Centros Educativos de otros Concellos a `r fechacentro` en este [enlace](https://javier-kniffki.shinyapps.io/CentrosEduCovid/).
 
 --------------------------------------------------------
 
