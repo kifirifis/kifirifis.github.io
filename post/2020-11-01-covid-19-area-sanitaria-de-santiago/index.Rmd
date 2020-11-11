@@ -1,25 +1,25 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-11-10'
+date: '2020-11-11'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-11-10T13:23:26+02:00'
+lastmod: '2020-11-11T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 10-11-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 11-11-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 Sin datos desagregados por Concello porque el SERGAS sigue sin publicarlos. 
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-11-10" #para las etiquetas 
-fechasemaforo <- "2020-11-10"
+fechaactual <-   "2020-11-11" #para las etiquetas 
+fechasemaforo <- "2020-11-11"
 fechacentro <-   "2020-11-10"
 fechamapa <-     "2020-11-10"
 ```
@@ -116,7 +116,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, -39],
+            innerHTML: [0, 16],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -136,7 +136,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 1170],
+            innerHTML: [0, 1186],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -156,7 +156,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 6.23],
+            innerHTML: [0, 6.30],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -176,7 +176,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 33],
+            innerHTML: [0, 79],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -191,16 +191,23 @@ library(tidyverse)
 library(ggiraph)
 library(sf)
 library(lubridate)
+library(kableExtra)
 
 datos <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/data-actualizada.csv", header = T)
 datos$fecha <- as_date(datos$fecha)
 datos <- datos %>% filter(fecha >= as.Date("2020-08-12"))
 
+datos2 <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/datapositividad.csv", header = T)
+datos2$fecha <- as_date(datos2$fecha)
+
+source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo2.R")
+source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
+
 ```
 
 # Semáforo para la apertura de Centros Educativos
 
-`A 10-11-2020 en el Área Sanitaria de Santiago se detectaron 33 nuevos casos y se dieron de alta a 72, lo que da lugar a 39 casos activos menos respecto al día 09-11-2020.`
+`A  11-11-2020 en el Área Sanitaria de Santiago se detectaron 79 nuevos casos y se dieron de alta a 62 y falleció una persona, lo que da lugar a 16 casos activos más respecto al día 10-11-2020.`
 
 `- La tasa "Positividad (Media móvil 14 días)" NO es óptima.`
 
@@ -215,11 +222,6 @@ Para la selección de indicadores se utilizó la guía del [*Centers for Disease
 ## Indicador 1
 <!-- TODO Poner vline toque de queda -->
 ```{r, message=F, warning=F, echo=F}
-datos2 <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/datapositividad.csv", header = T)
-datos2$fecha <- as_date(datos2$fecha)
-
-source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo2.R")
-source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 datos2 <- datos2 %>% filter(fecha > as_date("2020-08-15")) %>% mutate(catorce = round(catorce, 2))
 
@@ -268,8 +270,8 @@ ggplot() +
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.7) +
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.7) +
         
-        annotate("text", x = as_date("2020-09-03"), y = 1, label = "Vuelta al Cole", size = 2.5) + 
-        annotate("text", x = as_date("2020-09-16"), y = 1, label = "Vuelta USC", size = 2.4) + 
+        annotate("text", x = as_date("2020-09-03"), y = 1, label = "Vuelta al Cole", size = 2) + 
+        annotate("text", x = as_date("2020-09-16"), y = 1, label = "Vuelta USC", size = 2) + 
         
         
         # Escalas 
@@ -316,8 +318,8 @@ ggplot() +
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.7) +
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.7) +
         
-        annotate("text", x = as_date("2020-09-03"), y = 25, label = "Vuelta al Cole", size = 2.5) + 
-        annotate("text", x = as_date("2020-09-16"), y = 25, label = "Vuelta USC", size = 2.5) + 
+        annotate("text", x = as_date("2020-09-03"), y = 25, label = "Vuelta al Cole", size = 2) + 
+        annotate("text", x = as_date("2020-09-16"), y = 25, label = "Vuelta USC", size = 2) + 
         
         # Escalas
         
@@ -337,7 +339,7 @@ girafe(code = print(gg9))
 Color del indicador: <font color="#FFD700"> Riesgo moderado de transmisión </font>
 
 ```{r echo=FALSE, warning=F, message=FALSE}
-library(kableExtra)
+
 df <- data.frame(
         key = c("Uso consistente y correcto de mascarillas",
                 "Máximo distanciamiento social posible",
