@@ -207,13 +207,14 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  12-11-2020 en el Área Sanitaria de Santiago se detectaron 64 nuevos casos y se dieron de alta a 98 y fallecieron 4 personas, lo que da lugar a 38 casos activos menos respecto al día 11-11-2020.`
+`A  12-11-2020 en el Área Sanitaria de Santiago se detectaron 64 nuevos casos, se dieron de alta a 98 y fallecieron 4 personas, lo que da lugar a 38 casos activos menos respecto al día 11-11-2020.`
 
 `- La tasa "Positividad (Media móvil 14 días)" NO es óptima.`
 
 `- La tasa "Número de casos por cada cien mil habitantes en los últimos 14 días" NO es óptima y está en la categoría de "Riesgo muy alto".`
 
 `- Los ratios de los colegios no han bajado y el distanciamiento NO es óptimo.`
+
 
 Para la selección de indicadores se utilizó la guía del [*Centers for Disease Control and Prevention*](https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/indicators.html#interpretation)
 
