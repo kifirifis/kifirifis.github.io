@@ -11,7 +11,7 @@ tags:
 lastmod: '2020-11-12T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 11-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 12-11-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 Sin datos desagregados por Concello porque el SERGAS sigue sin publicarlos. 
 
