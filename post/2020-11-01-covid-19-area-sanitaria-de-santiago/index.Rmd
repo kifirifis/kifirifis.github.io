@@ -20,8 +20,8 @@ Sin datos desagregados por Concello porque el SERGAS sigue sin publicarlos.
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-11-18" #para las etiquetas 
 fechasemaforo <- "2020-11-18"
-fechacentro <-   "2020-11-17"
-fechamapa <-     "2020-11-17"
+fechacentro <-   "2020-11-18"
+fechamapa <-     "2020-11-18"
 ```
 
 ```{=html}
@@ -497,7 +497,7 @@ datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello ==
 
 --------------------------------------------------------
 
-Puedes consultar los Centros Educativos de otros Concellos a `r fechacentro` en este [enlace](https://javier-kniffki.shinyapps.io/CentrosEduCovid/).
+Puedes consultar los Centros Educativos de otros Concellos a `r fechacentro` en este [ENLACE](https://javier-kniffki.shinyapps.io/CentrosEduCovid/).
 
 --------------------------------------------------------
 
