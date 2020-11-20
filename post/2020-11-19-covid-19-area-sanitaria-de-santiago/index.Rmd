@@ -209,9 +209,9 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 `A  20-11-2020 en el Área Sanitaria de Santiago se detectaron 85 nuevos casos, se dieron de alta a 68 y fallecieron 2 personas, lo que da lugar a 15 casos activos más respecto al día 19-11-2020.`
 
-`- La tasa "Positividad (Media móvil 14 días)" NO es óptima.`
+`- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
-`- La tasa "Número de casos por cada cien mil habitantes en los últimos 14 días" NO es óptima.`
+`- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima y se encuentra en la categoría "Riesgo muy alto".`
 
 `- Los ratios de los colegios no han bajado y el distanciamiento NO es óptimo.`
 
@@ -235,11 +235,12 @@ ggplot() +
         geom_point_interactive(
                 data = datos2,
                 aes(fecha, posit, tooltip = posit),
-                alpha = 0.1,
+                alpha = 0.2,
                 col = "black",
                 size = 3
         ) +
         
+        semaforo2() +
         # MA14
         geom_line(
                 data = datos2,
@@ -258,7 +259,7 @@ ggplot() +
         
         # Etiquetas
         
-        labs(x = "", y = "", title = "Proporción PCR+ Media móvil 14 días (Positividad)",
+        labs(x = "", y = "", title = "Proporción PCR+ Media móvil 14 días",
              caption = "Elaboración: @JKniffki | KStats®", 
              subtitle =  paste("Actualización:", fechasemaforo)) + 
         
@@ -271,8 +272,8 @@ ggplot() +
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.7) +
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.7) +
         
-        annotate("text", x = as_date("2020-09-03"), y = 1, label = "Vuelta al Cole", size = 2) + 
-        annotate("text", x = as_date("2020-09-16"), y = 1, label = "Vuelta USC", size = 2) + 
+        annotate("text", x = as_date("2020-09-02"), y = 1, label = "Vuelta al Cole", size = 2) + 
+        annotate("text", x = as_date("2020-09-28"), y = 1, label = "Vuelta USC", size = 2) + 
         
         
         # Escalas 
@@ -299,10 +300,14 @@ ggplot() +
         semaforo() +
         
         geom_point_interactive(data = datos2, aes(fecha, catorce, tooltip = catorce), size = 1.5) +
+
+        semaforo() +
         
+        geom_point_interactive(data = datos2, aes(fecha, catorce, tooltip = catorce), size = 1.5) +
+  
         geom_line(data = datos2, aes(fecha, catorce), 
                   # size = 1.5,
-                  alpha = 0.8) +
+                  alpha = 1) +
         
         # Etiquetas        
         theme(
@@ -312,6 +317,7 @@ ggplot() +
               panel.border = element_blank()) +
         
         labs(x = "", y = "", 
+             #TODO Verificar el título de este indicador
              title = "Nº casos notificados por cada 100 Mil habitantes últimos 14 días",
              subtitle =  paste("Actualización:", fechasemaforo),
              caption = "Elaboración: @JKniffki | KStats®") +
@@ -319,8 +325,8 @@ ggplot() +
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.7) +
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.7) +
         
-        annotate("text", x = as_date("2020-09-03"), y = 25, label = "Vuelta al Cole", size = 2) + 
-        annotate("text", x = as_date("2020-09-16"), y = 25, label = "Vuelta USC", size = 2) + 
+        annotate("text", x = as_date("2020-09-02"), y = 25, label = "Vuelta al Cole", size = 2) + 
+        annotate("text", x = as_date("2020-09-28"), y = 25, label = "Vuelta USC", size = 2) + 
         
         # Escalas
         
