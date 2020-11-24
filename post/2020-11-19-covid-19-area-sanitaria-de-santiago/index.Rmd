@@ -20,8 +20,8 @@ Sin datos desagregados por Concello porque el SERGAS sigue sin publicarlos.
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-11-24" #para las etiquetas 
 fechasemaforo <- "2020-11-24"
-fechacentro <-   "2020-11-21"
-fechamapa <-     "2020-11-21"
+fechacentro <-   "2020-11-24"
+fechamapa <-     "2020-11-24"
 ```
 
 ```{=html}
