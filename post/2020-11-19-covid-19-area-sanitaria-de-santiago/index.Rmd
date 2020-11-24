@@ -1,25 +1,25 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-11-23'
+date: '2020-11-24'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-11-23T13:23:26+02:00'
+lastmod: '2020-11-24T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 23-11-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 24-11-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 Sin datos desagregados por Concello porque el SERGAS sigue sin publicarlos. 
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-11-23" #para las etiquetas 
-fechasemaforo <- "2020-11-23"
+fechaactual <-   "2020-11-24" #para las etiquetas 
+fechasemaforo <- "2020-11-24"
 fechacentro <-   "2020-11-21"
 fechamapa <-     "2020-11-21"
 ```
@@ -116,7 +116,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, -16],
+            innerHTML: [0, 23],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -136,7 +136,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 959],
+            innerHTML: [0, 982],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -207,7 +207,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  23-11-2020 en el Área Sanitaria de Santiago se detectaron 41 nuevos casos, se dieron de alta a 55 y fallecieron dos personas, lo que da lugar a 16 casos activos menos respecto al día 22-11-2020.`
+`A  24-11-2020 en el Área Sanitaria de Santiago se detectaron 60 nuevos casos, se dieron de alta a 35 y fallecieron dos personas, lo que da lugar a 23 casos activos menos respecto al día 23-11-2020.`
 
 `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
@@ -454,7 +454,7 @@ ggplot() +
   
   #Etiquetas
   labs(x = "", y = "",
-       title = "Evolución de casos activos",
+       title = "Evolución de nuevos casos activos",
        subtitle = paste("Actualización:", fechaactual),
        caption = "Elaboración: @JKniffki | KStats®") -> gg2 
 
