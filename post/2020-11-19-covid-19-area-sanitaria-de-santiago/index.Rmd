@@ -1,23 +1,23 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-11-26'
+date: '2020-11-27'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-11-26T13:23:26+02:00'
+lastmod: '2020-11-27T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 26-11-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 27-11-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-11-26" #para las etiquetas 
-fechasemaforo <- "2020-11-26"
+fechaactual <-   "2020-11-27" #para las etiquetas 
+fechasemaforo <- "2020-11-27"
 fechacentro <-   "2020-11-26"
 fechamapa <-     "2020-11-26"
 ```
@@ -114,7 +114,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, -14],
+            innerHTML: [0, -19],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -134,7 +134,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 948],
+            innerHTML: [0, 930],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -154,7 +154,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 5.93],
+            innerHTML: [0, 5.23],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -174,7 +174,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 63],
+            innerHTML: [0, 57],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -193,10 +193,11 @@ library(kableExtra)
 
 datos <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/data-actualizada.csv", header = T)
 datos$fecha <- as_date(datos$fecha)
-datos <- datos %>% filter(fecha >= as.Date("2020-08-12"))
+datos <- datos %>% filter(fecha >= as.Date("2020-08-20"))
 
 datos2 <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/datapositividad.csv", header = T)
 datos2$fecha <- as_date(datos2$fecha)
+datos2 <- datos2 %>% filter(fecha > as_date("2020-08-20")) %>% mutate(catorce = round(catorce, 2))
 
 source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo2.R")
 source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
@@ -205,7 +206,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  26-11-2020 en el Área Sanitaria de Santiago se detectaron 63 nuevos casos, se dieron de alta a 77, lo que da lugar a 14 casos activos menos respecto al día 25-11-2020.`
+`A  27-11-2020 en el Área Sanitaria de Santiago se detectaron 57 nuevos casos, se dieron de alta a 74 y fallecieron 2 personas, lo que da lugar a 19 casos activos menos respecto al día 25-11-2020.`
 
 `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
@@ -221,8 +222,6 @@ Para la selección de indicadores se utilizó la guía del [*Centers for Disease
 ## Indicador 1
 <!-- TODO Poner vline toque de queda -->
 ```{r, message=F, warning=F, echo=F}
-
-datos2 <- datos2 %>% filter(fecha > as_date("2020-08-15")) %>% mutate(catorce = round(catorce, 2))
 
 ggplot() +
     
