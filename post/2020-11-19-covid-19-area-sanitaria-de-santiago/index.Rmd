@@ -154,7 +154,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 5.23],
+            innerHTML: [0, 5.52],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
