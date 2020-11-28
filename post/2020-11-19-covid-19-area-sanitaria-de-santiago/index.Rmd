@@ -18,8 +18,8 @@ lastmod: '2020-11-28T13:23:26+02:00'
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-11-28" #para las etiquetas 
 fechasemaforo <- "2020-11-28"
-fechacentro <-   "2020-11-27"
-fechamapa <-     "2020-11-27"
+fechacentro <-   "2020-11-28"
+fechamapa <-     "2020-11-28"
 ```
 
 ```{=html}
