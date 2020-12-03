@@ -18,8 +18,8 @@
       <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
       <guid>/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/</guid>
       <description>
-&lt;link href=&#34;/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/post/alojar-apps-de-shiny-con-docker-en-tu-pagina-web/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Alojar aplicaciones de Shiny en tu página web depende principalmente del tipo de hosting que tengas contratado. La opción gratis y fácil es utilizar &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;el servidor de shiny&lt;/a&gt; desde RStudio y con un solo click es posible subirlas. Pero la versión gratuita tiene una limitación y es que solo permite utilizar la app 25 horas al mes, y ese tiempo se pasa en un santiamén. Buscando alguna solución he navegado bastantes horas por internet y he encontrado partes de respuestas en todos lados. Mi intención con esta entrada es poner en orden toda esa información y de paso dejar constancia de como lo he hecho para que no se me olvide en el futuro.&lt;/p&gt;
@@ -194,8 +194,8 @@ Este proceso tarda un poco dependiendo de tu computadora.&lt;/p&gt;
       <pubDate>Mon, 17 Dec 2018 21:13:14 -0500</pubDate>
       <guid>/post/2018-12-17-integrales-definidas-en-r/</guid>
       <description>
-&lt;link href=&#34;/post/2018-12-17-integrales-definidas-en-r/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/post/2018-12-17-integrales-definidas-en-r/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Es realmente fácil integrar en R si sabes como hacerlo. Supongamos que el tiempo de vida de una batería es una variable aleatoria con función de densidad.&lt;/p&gt;
