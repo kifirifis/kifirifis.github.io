@@ -1,23 +1,23 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-12-03'
+date: '2020-12-04'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-12-03T13:23:26+02:00'
+lastmod: '2020-12-04T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 03-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 04-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-12-03" #para las etiquetas 
-fechasemaforo <- "2020-12-03"
+fechaactual <-   "2020-12-04" #para las etiquetas 
+fechasemaforo <- "2020-12-04"
 fechacentro <-   "2020-12-03"
 fechamapa <-     "2020-12-03"
 ```
@@ -114,7 +114,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, -9],
+            innerHTML: [0, -4],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -134,7 +134,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 825],
+            innerHTML: [0, 821],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -154,7 +154,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 6.19],
+            innerHTML: [0, 6.16],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -206,7 +206,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  03-12-2020 en el Área Sanitaria de Santiago se detectaron 67 nuevos casos, se dieron de alta a 76, lo que da lugar a 9 casos activos menos respecto al día 02-12-2020.`
+`A  04-12-2020 en el Área Sanitaria de Santiago se detectaron 67 nuevos casos, se dieron de alta a 70 y falleció una persona, lo que da lugar a 4 casos activos menos respecto al día 03-12-2020.`
 
 `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
@@ -266,11 +266,20 @@ ggplot() +
               panel.grid.minor.x = element_blank(),
               panel.border = element_blank()) +
         
-        geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.7) +
-        geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.7) +
+        geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.6) +
+        geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
         
         annotate("text", x = as_date("2020-09-02"), y = 1, label = "Vuelta al Cole", size = 2) + 
         annotate("text", x = as_date("2020-09-28"), y = 1, label = "Vuelta USC", size = 2) + 
+  
+        #Eventos poíticos y económicos
+            # Cierre hostelería
+        geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-10-28"), y = 0.8, label = "Cierre hostelería", size = 2) +
+            # Apertura hostelería
+        geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-11-23"), y = 0.8, label = "Apertura hostelería", size = 2) + 
+        
         
         
         # Escalas 
@@ -319,11 +328,20 @@ ggplot() +
              subtitle =  paste("Actualización:", fechasemaforo),
              caption = "Elaboración: @JKniffki | KStats®") +
         
-        geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.7) +
-        geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.7) +
+        geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.6) +
+        geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
         
         annotate("text", x = as_date("2020-09-02"), y = 25, label = "Vuelta al Cole", size = 2) + 
         annotate("text", x = as_date("2020-09-28"), y = 25, label = "Vuelta USC", size = 2) + 
+  
+        #Eventos poíticos y económicos
+          # Cierre hostelería
+        geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-10-28"), y = 25, label = "Cierre hostelería", size = 2) + 
+        
+          # Apertura hostelería
+        geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-11-23"), y = 25, label = "Apertura hostelería", size = 2) + 
         
         # Escalas
         
@@ -332,7 +350,7 @@ ggplot() +
   
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
-        
+  
         expand_limits(x = as_date("2020-10-30")) -> gg9
 
 girafe(code = print(gg9))
