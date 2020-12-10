@@ -18,8 +18,8 @@ lastmod: '2020-12-10T13:23:26+02:00'
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-12-10" #para las etiquetas 
 fechasemaforo <- "2020-12-10"
-fechacentro <-   "2020-12-05"
-fechamapa <-     "2020-12-05"
+fechacentro <-   "2020-12-10"
+fechamapa <-     "2020-12-10"
 ```
 
 ```{=html}
@@ -261,6 +261,7 @@ ggplot() +
              subtitle =  paste("Actualización:", fechasemaforo)) + 
         
         theme(
+              
               legend.title = element_blank(),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.x = element_blank(),
