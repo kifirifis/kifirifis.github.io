@@ -18,8 +18,8 @@ lastmod: '2020-12-11T13:23:26+02:00'
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-12-11" #para las etiquetas 
 fechasemaforo <- "2020-12-11"
-fechacentro <-   "2020-12-10"
-fechamapa <-     "2020-12-10"
+fechacentro <-   "2020-12-11"
+fechamapa <-     "2020-12-11"
 ```
 
 ```{=html}
@@ -261,7 +261,8 @@ ggplot() +
              subtitle =  paste("Actualización:", fechasemaforo)) + 
         
         theme(
-              
+              legend.text = element_text(size = 7.5),
+              legend.position = "top",
               legend.title = element_blank(),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.x = element_blank(),
@@ -270,23 +271,30 @@ ggplot() +
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.6) +
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
         
-        annotate("text", x = as_date("2020-09-02"), y = 1, label = "Vuelta al Cole", size = 2) + 
-        annotate("text", x = as_date("2020-09-28"), y = 1, label = "Vuelta USC", size = 2) + 
+        annotate("text", x = as_date("2020-09-04"), y = 1, label = "Vuelta al Cole", size = 2) + 
+        annotate("text", x = as_date("2020-09-26"), y = 1, label = "Vuelta USC", size = 2) + 
   
         #Eventos poíticos y económicos
+        
+            # Cierre consumo interior bares santiago 
+        geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-10-24"), y = 2, 
+                 label = "Cierre consumo en \n interiores de bares \n  Santiago", size = 2) +
+  
             # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-28"), y = 0.8, label = "Cierre hostelería", size = 2) +
+        annotate("text", x = as_date("2020-11-14"), y = 2, label = "Cierre hostelería", size = 2) +
             # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-23"), y = 0.8, label = "Apertura hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-26"), y = 0.8, label = "Apertura hostelería", size = 2) + 
         
         
         
         # Escalas 
         scale_alpha_identity(guide = "none") +
-        scale_color_identity(guide = "legend",
-                             labels = "Media móvil 14 días") +
+        scale_color_identity(guide = "none") +
+        # scale_color_identity(guide = "legend",
+        #                      labels = "Media móvil 14 días") +
         
         scale_y_continuous(labels = function(x) paste0(x, "%"), expand = c(0, 0.1)) +
         
@@ -318,6 +326,8 @@ ggplot() +
         
         # Etiquetas        
         theme(
+              legend.text = element_text(size = 7.5),
+              legend.position = "top",
               legend.title = element_blank(),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.x = element_blank(),
@@ -332,17 +342,22 @@ ggplot() +
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.6) +
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
         
-        annotate("text", x = as_date("2020-09-02"), y = 25, label = "Vuelta al Cole", size = 2) + 
-        annotate("text", x = as_date("2020-09-28"), y = 25, label = "Vuelta USC", size = 2) + 
+        annotate("text", x = as_date("2020-09-04"), y = 25, label = "Vuelta al Cole", size = 2) + 
+        annotate("text", x = as_date("2020-09-26"), y = 25, label = "Vuelta USC", size = 2) + 
   
         #Eventos poíticos y económicos
+          #Cierre consumo interior bares https://www.lavozdegalicia.es/retransmision/sociedad/2020/10/30/directo-sanidade-anuncia-nuevas-restricciones-galicia/01071604049077150195336.htm
+        geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-10-24"), y = 70, 
+                 label = "Cierre consumo en \n interiores de bares \n  Santiago", size = 2) + 
+  
           # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-28"), y = 25, label = "Cierre hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-14"), y = 55, label = "Cierre hostelería", size = 2) + 
         
           # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-23"), y = 25, label = "Apertura hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-26"), y = 25, label = "Apertura hostelería", size = 2) + 
         
         # Escalas
         
