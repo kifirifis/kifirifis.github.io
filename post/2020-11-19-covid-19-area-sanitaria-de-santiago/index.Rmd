@@ -488,7 +488,7 @@ Positivos en Centros Educativos notificados a `r fechamapa` (no necesariamente a
 </figure>
 
 ```{r echo=FALSE, message=F, warning=FALSE}
-datos <- read.csv("C:/Users/Kifirifis/Desktop/OneDrive - Universidade de Santiago de Compostela/galicianumeroteca/galicia-covid19/centros_educativos/centros_educativos.csv", encoding = "UTF-8")
+datos <- read.csv("C:/Users/Kifirifis/Desktop/OneDrive - Universidade de Santiago de Compostela/galicianumeroteca/galicia-covid19/centros_educativos/centros_educativos.csv", encoding = "UTF-8") %>% filter(positivos > 0)
 
 positivoscentros <- datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro) %>% summarise(sum(positivos))
 
