@@ -1,23 +1,23 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-12-11'
+date: '2020-12-12'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-12-11T13:23:26+02:00'
+lastmod: '2020-12-12T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 11-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 12-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-12-11" #para las etiquetas 
-fechasemaforo <- "2020-12-11"
+fechaactual <-   "2020-12-12" #para las etiquetas 
+fechasemaforo <- "2020-12-12"
 fechacentro <-   "2020-12-11"
 fechamapa <-     "2020-12-11"
 ```
@@ -114,7 +114,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, 7],
+            innerHTML: [0, 27],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -134,7 +134,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 824],
+            innerHTML: [0, 852],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -154,7 +154,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 5.59],
+            innerHTML: [0, 5.81],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -174,7 +174,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 66],
+            innerHTML: [0, 91],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -206,11 +206,11 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  11-12-2020 en el Área Sanitaria de Santiago se detectaron 66 nuevos casos y se dieron de alta a 58 y falleció una persona, lo que da lugar a 7 casos activos más respecto al día 10-12-2020.`
+`A  12-12-2020 en el Área Sanitaria de Santiago se detectaron 91 nuevos casos y se dieron de alta a 63 y falleció una persona, lo que da lugar a 27 casos activos más respecto al día 11-12-2020.`
 
 `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
-`- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima y se encuentra en la categoría "Riesgo muy alto".`
+`- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima.`
 
 `- Los ratios de los colegios no han bajado y el distanciamiento NO es óptimo.`
 
@@ -278,8 +278,8 @@ ggplot() +
         
             # Cierre consumo interior bares santiago 
         geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-24"), y = 2, 
-                 label = "Cierre consumo en \n interiores de bares \n  Santiago", size = 2) +
+        annotate("text", x = as_date("2020-10-23"), y = 2, 
+                 label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 2) +
   
             # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
@@ -348,8 +348,8 @@ ggplot() +
         #Eventos poíticos y económicos
           #Cierre consumo interior bares https://www.lavozdegalicia.es/retransmision/sociedad/2020/10/30/directo-sanidade-anuncia-nuevas-restricciones-galicia/01071604049077150195336.htm
         geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-24"), y = 70, 
-                 label = "Cierre consumo en \n interiores de bares \n  Santiago", size = 2) + 
+        annotate("text", x = as_date("2020-10-23"), y = 70, 
+                 label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 2) + 
   
           # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
@@ -495,7 +495,7 @@ girafe(code = print(gg2))
 
 # Mapas
 
-Positivos en Centros Educativos notificados a `r fechamapa` (no necesariamente alumnos sino personas vinculadas al Centro Educativo)
+Positivos en Centros Educativos notificados a `r fechamapa` (No necesariamente alumnos si no personas vinculadas al Centro Educativo)
 
 <figure>
 <iframe seamless src="mimapa.html" width="100%" height="500"></iframe>
@@ -518,7 +518,7 @@ Positivos en Centros Educativos del Área Sanitaria de Santiago a `r fechacentro
 
 Positivos en Centros Educativos del Concello de Santiago a `r fechacentro`: <font color="red"> `r santiago` </font>
 
-*Nota: Hay aulas cerradas y/o positivos que no están siendo reportados por el SERGAS*
+*Nota: Hay aulas cerradas y/o positivos que no están siendo reportados por el SERGAS.*
 
 ```{r echo=FALSE, warning=F, message=FALSE}
 datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello == "SANTIAGO DE COMPOSTELA") %>%
@@ -545,11 +545,11 @@ Puedes consultar los Centros Educativos de otros Concellos a `r fechacentro` en 
 
 -   Datos poblacionales: [IGE](https://www.ige.eu/web/mostrar_actividade_estatistica.jsp?idioma=es&codigo=0201001002)
 
-- Agradecimiento a [Daniel González](https://github.com/lipido/galicia-covid19) del proyecto [escovid19data](https://github.com/montera34/escovid19data) de [Numeroteca](https://twitter.com/numeroteca) que toma como fuente el [Departamento de Comunicación del Sergas Ourense](https://twitter.com/com_chuo) por los datos de Centros Educativos. 
+- Agradecimiento a [Daniel González](https://github.com/lipido/galicia-covid19) del proyecto @[escovid19data](https://twitter.com/escovid19data) que toma como fuente el [Departamento de Comunicación del Sergas Ourense](https://twitter.com/com_chuo) por los datos proporcionados de manera periódica de Centros Educativos. 
 
 ## Indicadores del semáforo
 
 -   [Indicators for Dynamic School Decision-Making](https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/indicators.html#interpretation)
 
 ## Contacto
-Si detectas algún error o quieres contribuir no dudes en contactarme en los comentarios de abajo o en mi twitter @[JKniffki](https://twitter.com/JKniffki)
+Si detectas algún error o quieres contribuir no dudes en contactarme en los comentarios de abajo o en mi twitter: @[JKniffki](https://twitter.com/JKniffki).
