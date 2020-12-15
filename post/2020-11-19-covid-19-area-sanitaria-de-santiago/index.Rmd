@@ -1,23 +1,23 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-12-14'
+date: '2020-12-15'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-12-14T13:23:26+02:00'
+lastmod: '2020-12-15T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 14-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 15-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-12-14" #para las etiquetas 
-fechasemaforo <- "2020-12-14"
+fechaactual <-   "2020-12-15" #para las etiquetas 
+fechasemaforo <- "2020-12-15"
 fechacentro <-   "2020-12-12"
 fechamapa <-     "2020-12-12"
 ```
@@ -114,7 +114,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, 47],
+            innerHTML: [0, 53],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -134,7 +134,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 952],
+            innerHTML: [0, 1005],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -154,7 +154,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 5.96],
+            innerHTML: [0, 5.85],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -174,7 +174,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 88],
+            innerHTML: [0, 78],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -207,7 +207,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  14-12-2020 en el Área Sanitaria de Santiago se detectaron 88 nuevos casos y se dieron de alta a 41, lo que da lugar a 47 casos activos más respecto al día 13-12-2020.`
+`A  15-12-2020 en el Área Sanitaria de Santiago se detectaron 78 nuevos casos, falleció una persona y se dieron de alta a 24, lo que da lugar a 53 casos activos más respecto al día 14-12-2020.`
 
 `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
