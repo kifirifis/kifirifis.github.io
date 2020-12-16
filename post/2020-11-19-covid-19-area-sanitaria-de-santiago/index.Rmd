@@ -18,8 +18,8 @@ lastmod: '2020-12-16T13:23:26+02:00'
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-12-16" #para las etiquetas 
 fechasemaforo <- "2020-12-16"
-fechacentro <-   "2020-12-15"
-fechamapa <-     "2020-12-15"
+fechacentro <-   "2020-12-16"
+fechamapa <-     "2020-12-16"
 ```
 
 ```{=html}
@@ -315,11 +315,17 @@ ggplot() +
         
         semaforo() +
         
-        geom_point_interactive(data = datos2, aes(fecha, catorce, tooltip = catorce), size = 1.5) +
+        geom_point_interactive(data = datos2, 
+                               aes(fecha, catorce, 
+                                   tooltip = paste0("Valor: ", catorce, "\nFecha: ", fecha)), 
+                               size = 1.5) +
 
         semaforo() +
         
-        geom_point_interactive(data = datos2, aes(fecha, catorce, tooltip = catorce), size = 1.5) +
+        geom_point_interactive(data = datos2, 
+                               aes(fecha, catorce, 
+                                   tooltip = catorce), 
+                               size = 1.5) +
   
         geom_line(data = datos2, aes(fecha, catorce), 
                   # size = 1.5,
@@ -413,7 +419,8 @@ ggplot() +
         geom_line_interactive(data = datos,  aes(tooltip = MA7, fecha, MA7, colour =  "#B22222")) +
   
         geom_point_interactive(data = datos, 
-                               aes(tooltip = MA7, fecha, MA7, colour = "#B22222"),
+                               aes(tooltip = MA7, 
+                                   fecha, MA7, colour = "#B22222"),
                                size = 3) +
 
         #geom text MA7
