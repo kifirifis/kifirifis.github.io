@@ -18,8 +18,8 @@ lastmod: '2020-12-17T13:23:26+02:00'
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-12-17" #para las etiquetas 
 fechasemaforo <- "2020-12-17"
-fechacentro <-   "2020-12-16"
-fechamapa <-     "2020-12-16"
+fechacentro <-   "2020-12-17"
+fechamapa <-     "2020-12-17"
 ```
 
 ```{=html}
@@ -506,7 +506,7 @@ girafe(code = print(gg2))
 Positivos en Centros Educativos notificados en Galicia a `r fechamapa` (No necesariamente alumnos si no personas vinculadas al Centro Educativo).
 
 <figure>
-<iframe seamless src="mimapa.html" width="100%" height="500"></iframe>
+<iframe seamless src="mimapa.html" width="100%" height="700"></iframe>
 <figcaption>Elaboración: @JKniffki | KStats®</figcaption>
 </figure>
 
