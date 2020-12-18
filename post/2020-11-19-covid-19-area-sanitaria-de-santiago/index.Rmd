@@ -19,9 +19,9 @@ lastmod: '2020-12-18T13:23:26+02:00'
 fechaactual <-   "2020-12-18" #para las etiquetas 
 fechasemaforo <- "2020-12-18"
 
-fsantiago <-     "2020-12-17"  
-fechacentro <-   "2020-12-17"
-fechamapa <-     "2020-12-17"
+fsantiago <-     "2020-12-18"  
+fechacentro <-   "2020-12-18"
+fechamapa <-     "2020-12-18"
 ```
 
 ```{=html}
