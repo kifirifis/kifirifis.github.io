@@ -18,6 +18,8 @@ lastmod: '2020-12-18T13:23:26+02:00'
 ```{r echo=FALSE, message=F, warning=F}
 fechaactual <-   "2020-12-18" #para las etiquetas 
 fechasemaforo <- "2020-12-18"
+
+fsantiago <-     "2020-12-17"  
 fechacentro <-   "2020-12-17"
 fechamapa <-     "2020-12-17"
 ```
@@ -421,7 +423,7 @@ ggplot() +
                                   fecha, MA7, colour =  "#B22222")) +
   
         geom_point_interactive(data = datos, 
-                               aes(tooltip = paste0("Activos Media M. 7d: ", MA7, "\nFecha: ", fecha), 
+                               aes(tooltip = paste0("MA7: ", MA7, "\nFecha: ", fecha), 
                                    fecha, MA7, colour = "#B22222"),
                                size = 3) +
 
@@ -620,7 +622,7 @@ ggplot() +
         
         #Etiquetas
         labs(title = "Nº casos notificados por cada 100 mil habitantes últimos 14 días \n en el Concello de Santiago",
-             subtitle = paste("Actualización:", fechaactual),
+             subtitle = paste("Actualización:", fsantiago),
              caption = "Elaboración: @JKniffki | KStats®",
              x = "", y = "") -> p50
 girafe(code = print(p50))
