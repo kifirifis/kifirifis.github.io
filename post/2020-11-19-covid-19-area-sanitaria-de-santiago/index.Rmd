@@ -1,23 +1,23 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-12-17'
+date: '2020-12-18'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-12-17T13:23:26+02:00'
+lastmod: '2020-12-18T13:23:26+02:00'
 ---
 
-<font color="red"> Actualización: 17-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 18-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-12-17" #para las etiquetas 
-fechasemaforo <- "2020-12-17"
+fechaactual <-   "2020-12-18" #para las etiquetas 
+fechasemaforo <- "2020-12-18"
 fechacentro <-   "2020-12-17"
 fechamapa <-     "2020-12-17"
 ```
@@ -114,7 +114,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, 47],
+            innerHTML: [0, 43],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -134,7 +134,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 1100],
+            innerHTML: [0, 1144],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -154,7 +154,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 5.64],
+            innerHTML: [0, 5.47],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -207,7 +207,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  17-12-2020 en el Área Sanitaria de Santiago se detectaron 110 nuevos casos y se dieron de alta a 63, lo que da lugar a 47 casos activos más respecto al día 16-12-2020.`
+`A  18-12-2020 en el Área Sanitaria de Santiago se detectaron 104 nuevos casos, falleció una persona y se dieron de alta a 60, lo que da lugar a 43 casos activos más respecto al día 16-12-2020.`
 
 `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
@@ -416,10 +416,12 @@ ggplot() +
         # geom_point(data = datos, aes(fecha, lag7), col = 3) +
 
         #MA7
-        geom_line_interactive(data = datos,  aes(tooltip = MA7, fecha, MA7, colour =  "#B22222")) +
+        geom_line_interactive(data = datos,  
+                              aes(tooltip = MA7, 
+                                  fecha, MA7, colour =  "#B22222")) +
   
         geom_point_interactive(data = datos, 
-                               aes(tooltip = MA7, 
+                               aes(tooltip = paste0("Activos Media M. 7d: ", MA7, "\nFecha: ", fecha), 
                                    fecha, MA7, colour = "#B22222"),
                                size = 3) +
 
@@ -433,7 +435,7 @@ ggplot() +
                               alpha = 0.3) +
   
         geom_point_interactive(data = datos, 
-                               aes(tooltip = casos, fecha, casos, colour = "#00CD66"),
+                               aes(tooltip =  paste0("Casos activos: ", casos, "\nFecha: ", fecha), fecha, casos, colour = "#00CD66"),
                                size = 3, alpha = 0.3) +
 
 
@@ -524,7 +526,7 @@ Positivos en Centros Educativos del Área Sanitaria de Santiago a `r fechacentro
 
 ---------------------------------------
 
-## Concello de Santiago
+# Concello de Santiago
 
 Positivos en Centros Educativos del Concello de Santiago a `r fechacentro`: <font color="red"> `r santiago` </font>
 
@@ -582,6 +584,47 @@ ggplot() +
 p100 <- p100 + plot_layout(heights = unit(7,"cm"))
 
 girafe(code = print(p100))
+```
+
+
+```{r echo=F, warning=F, message=F}
+#IA 14 100mil CONCELLO DE SANTIAGO
+df <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/data/santiago.csv", header = T) 
+df$fecha <- lubridate::as_date(df$fecha)
+# fechaactual <-   "2020-12-17"
+
+ggplot() +
+        geom_line_interactive(data = df, aes(fecha, IA14),
+                  alpha = 0.5) +
+        
+        geom_point_interactive(data = df, 
+                               aes(fecha, IA14, 
+                                   tooltip = paste0("IA14: ", IA14, "\nFecha: ", fecha)),
+                               size = 4, alpha = 0.6, 
+                               colour = "#B22222",
+                               show.legend = F) +
+        
+        #Tema y escalas
+        theme(axis.text.x = element_text(angle = 60, hjust = 1),
+              legend.position = "bottom") +
+        scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
+        
+        # Apertura hostelería
+        geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-12-02"), y = 170, label = "Apertura hostelería", size = 2) +
+        
+        # Apertura hostelería
+        geom_vline(xintercept = as_date("2020-12-17"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-12-15"), y = 170, label = "Cierre perimetral y \n reducción de aforo", size = 2) +
+        
+        
+        #Etiquetas
+        labs(title = "Nº casos notificados por cada 100 mil habitantes últimos 14 días \n en el Concello de Santiago",
+             subtitle = paste("Actualización:", fechaactual),
+             caption = "Elaboración: @JKniffki | KStats®",
+             x = "", y = "") -> p50
+girafe(code = print(p50))
+
 ```
 
 
