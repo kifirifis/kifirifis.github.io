@@ -212,7 +212,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 `A  22-12-2020 en el Área Sanitaria de Santiago se detectaron 55 nuevos casos y se dieron de alta a 42, lo que da lugar a 13 casos activos más respecto al día 21-12-2020.`
 
-`- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima. Se mantiene estable.`
+`- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
 `- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima.`
 
