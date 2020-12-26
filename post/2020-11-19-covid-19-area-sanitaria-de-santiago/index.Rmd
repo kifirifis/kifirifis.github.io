@@ -543,6 +543,65 @@ Positivos en Centros Educativos del Área Sanitaria de Santiago a `r fechacentro
 
 # Concello de Santiago
 
+Positivos en Centros Educativos del Concello de Santiago a `r fechacentro`: <font color="red"> `r santiago` </font>
+
+*Nota: Hay aulas cerradas y/o positivos que no están siendo reportados por el SERGAS.*
+
+```{r echo=FALSE, warning=F, message=FALSE}
+datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello == "SANTIAGO DE COMPOSTELA") %>%
+  select(Tipo = tipo_centro, Centro = nombre_centro, Positivos = positivos, `Aulas cerradas` = aulas_cerradas, `Centro cerrado` = centro_cerrado) %>%
+  arrange(desc(Positivos)) %>% mutate(`Centro cerrado` = toupper(`Centro cerrado`)) %>% 
+  kableExtra::kbl(caption = "Elaboración: @JKniffki | KStats®", align = "c") %>% 
+  kableExtra::column_spec(3, color = c("#5C0303")) %>% 
+  kableExtra::column_spec(4, color = c("#370463")) %>% 
+  kableExtra::column_spec(5, color = "gray10")
+  
+```
+
+```{r echo=FALSE, warning=F, message=FALSE}
+#CENTROS EDUCATIVOS CONCELLOS DE SANTIAGO
+datos <- read.csv("C:/Users/Kifirifis/Desktop/OneDrive - Universidade de Santiago de Compostela/galicianumeroteca/data/definitivo.csv", header = T)
+datos$fecha <- lubridate::as_date(datos$fecha)
+datos %>% 
+        filter(concello == "SANTIAGO DE COMPOSTELA", positivos > 0) %>% 
+        select(fecha, positivos, aulas_cerradas) %>% 
+        group_by(fecha) %>% 
+        summarise(positivos = sum(positivos), 
+                  aulas_cerradas = sum(as.numeric(aulas_cerradas))) -> datos2
+        
+ggplot() +
+        #Positivos
+        geom_point_interactive(data = datos2, 
+                               aes(fecha, positivos, tooltip = positivos, colour = "#00CD66"), 
+                               size = 3, alpha = 0.5) +
+        geom_line(data = datos2, aes(fecha, positivos),
+                  alpha = 0.3) +
+
+        #Aulas cerradas
+        geom_point_interactive(data = datos2, 
+                               aes(fecha, aulas_cerradas, tooltip = aulas_cerradas, colour = "#B22222"),
+                               size = 3, alpha = 0.5) +
+        geom_line(data = datos2, aes(fecha, aulas_cerradas),
+                  alpha = 0.3) + 
+        
+        #Tema y escalas
+        theme(axis.text.x = element_text(angle = 60, hjust = 1),
+              legend.position = "bottom") +
+        scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
+        scale_color_discrete(name = "", labels = c("Positivos", "Aulas cerradas")) +
+        
+        #Etiquetas
+        labs(title = "Positivos en Centros Educativos en el Concello de Santiago",
+             subtitle = paste("Actualización:", fechacentro),
+             caption = "Elaboración: @JKniffki | KStats®",
+             x = "", y = "") -> p100
+
+p100 <- p100 + plot_layout(heights = unit(7,"cm"))
+
+girafe(code = print(p100))
+```
+
+
 ```{r echo=F, warning=F, message=F}
 #IA 14 100mil CONCELLO DE SANTIAGO
 df <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/data/santiago.csv", header = T) 
@@ -606,66 +665,6 @@ ggplot() +
 
 girafe(code = print(p50))
 
-```
-
-----------------------------------------------------------
-
-Positivos en Centros Educativos del Concello de Santiago a `r fechacentro`: <font color="red"> `r santiago` </font>
-
-*Nota: Hay aulas cerradas y/o positivos que no están siendo reportados por el SERGAS.*
-
-```{r echo=FALSE, warning=F, message=FALSE}
-datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello == "SANTIAGO DE COMPOSTELA") %>%
-  select(Tipo = tipo_centro, Centro = nombre_centro, Positivos = positivos, `Aulas cerradas` = aulas_cerradas, `Centro cerrado` = centro_cerrado) %>%
-  arrange(desc(Positivos)) %>% mutate(`Centro cerrado` = toupper(`Centro cerrado`)) %>% 
-  kableExtra::kbl(caption = "Elaboración: @JKniffki | KStats®", align = "c") %>% 
-  kableExtra::column_spec(3, color = c("#5C0303")) %>% 
-  kableExtra::column_spec(4, color = c("#370463")) %>% 
-  kableExtra::column_spec(5, color = "gray10")
-  
-```
-
-```{r echo=FALSE, warning=F, message=FALSE}
-#CENTROS EDUCATIVOS CONCELLOS DE SANTIAGO
-datos <- read.csv("C:/Users/Kifirifis/Desktop/OneDrive - Universidade de Santiago de Compostela/galicianumeroteca/data/definitivo.csv", header = T)
-datos$fecha <- lubridate::as_date(datos$fecha)
-datos %>% 
-        filter(concello == "SANTIAGO DE COMPOSTELA", positivos > 0) %>% 
-        select(fecha, positivos, aulas_cerradas) %>% 
-        group_by(fecha) %>% 
-        summarise(positivos = sum(positivos), 
-                  aulas_cerradas = sum(as.numeric(aulas_cerradas))) -> datos2
-        
-ggplot() +
-        #Positivos
-        geom_point_interactive(data = datos2, 
-                               aes(fecha, positivos, tooltip = positivos, colour = "#00CD66"), 
-                               size = 3, alpha = 0.5) +
-        geom_line(data = datos2, aes(fecha, positivos),
-                  alpha = 0.3) +
-
-        #Aulas cerradas
-        geom_point_interactive(data = datos2, 
-                               aes(fecha, aulas_cerradas, tooltip = aulas_cerradas, colour = "#B22222"),
-                               size = 3, alpha = 0.5) +
-        geom_line(data = datos2, aes(fecha, aulas_cerradas),
-                  alpha = 0.3) + 
-        
-        #Tema y escalas
-        theme(axis.text.x = element_text(angle = 60, hjust = 1),
-              legend.position = "bottom") +
-        scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
-        scale_color_discrete(name = "", labels = c("Positivos", "Aulas cerradas")) +
-        
-        #Etiquetas
-        labs(title = "Positivos en Centros Educativos en el Concello de Santiago",
-             subtitle = paste("Actualización:", fechacentro),
-             caption = "Elaboración: @JKniffki | KStats®",
-             x = "", y = "") -> p100
-
-p100 <- p100 + plot_layout(heights = unit(7,"cm"))
-
-girafe(code = print(p100))
 ```
 
 *Nota: SERGAS da el primer dato (IA 14) por Concello el 21 de Noviembre y sigue sin proporcionar datos de fallecidos, altas, activos, pruebas... por Concello.*
