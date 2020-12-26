@@ -1,24 +1,24 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-12-25'
+date: '2020-12-26'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-12-25T13:24:26+02:00'
+lastmod: '2020-12-26T13:24:26+02:00'
 ---
 
-<font color="red"> Actualización: 25-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 26-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-12-25" #para las etiquetas 
-fechasemaforo <- "2020-12-25"
-fsantiago <-     "2020-12-24"  
+fechaactual <-   "2020-12-26" #para las etiquetas 
+fechasemaforo <- "2020-12-26"
+fsantiago <-     "2020-12-26"  
 
 #Centros 
 fechacentro <-   "2020-12-23"
@@ -117,7 +117,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, 2],
+            innerHTML: [0, 32],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -137,7 +137,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 1323],
+            innerHTML: [0, 1355],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -157,7 +157,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 5.23],
+            innerHTML: [0, 5.03],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -177,7 +177,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 78],
+            innerHTML: [0, 99],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -210,7 +210,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  25-12-2020 en el Área Sanitaria de Santiago se detectaron 78 nuevos casos y se dieron de alta a 76, lo que da lugar a 2 casos activos más respecto al día 23-12-2020.`
+`A  26-12-2020 en el Área Sanitaria de Santiago se detectaron 99 nuevos casos, se dieron de alta a 64 y fallecieron 3 personas, lo que da lugar a 32 casos activos más respecto al día 25-12-2020.`
 
 `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
@@ -543,65 +543,6 @@ Positivos en Centros Educativos del Área Sanitaria de Santiago a `r fechacentro
 
 # Concello de Santiago
 
-Positivos en Centros Educativos del Concello de Santiago a `r fechacentro`: <font color="red"> `r santiago` </font>
-
-*Nota: Hay aulas cerradas y/o positivos que no están siendo reportados por el SERGAS.*
-
-```{r echo=FALSE, warning=F, message=FALSE}
-datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello == "SANTIAGO DE COMPOSTELA") %>%
-  select(Tipo = tipo_centro, Centro = nombre_centro, Positivos = positivos, `Aulas cerradas` = aulas_cerradas, `Centro cerrado` = centro_cerrado) %>%
-  arrange(desc(Positivos)) %>% mutate(`Centro cerrado` = toupper(`Centro cerrado`)) %>% 
-  kableExtra::kbl(caption = "Elaboración: @JKniffki | KStats®", align = "c") %>% 
-  kableExtra::column_spec(3, color = c("#5C0303")) %>% 
-  kableExtra::column_spec(4, color = c("#370463")) %>% 
-  kableExtra::column_spec(5, color = "gray10")
-  
-```
-
-```{r echo=FALSE, warning=F, message=FALSE}
-#CENTROS EDUCATIVOS CONCELLOS DE SANTIAGO
-datos <- read.csv("C:/Users/Kifirifis/Desktop/OneDrive - Universidade de Santiago de Compostela/galicianumeroteca/data/definitivo.csv", header = T)
-datos$fecha <- lubridate::as_date(datos$fecha)
-datos %>% 
-        filter(concello == "SANTIAGO DE COMPOSTELA", positivos > 0) %>% 
-        select(fecha, positivos, aulas_cerradas) %>% 
-        group_by(fecha) %>% 
-        summarise(positivos = sum(positivos), 
-                  aulas_cerradas = sum(as.numeric(aulas_cerradas))) -> datos2
-        
-ggplot() +
-        #Positivos
-        geom_point_interactive(data = datos2, 
-                               aes(fecha, positivos, tooltip = positivos, colour = "#00CD66"), 
-                               size = 3, alpha = 0.5) +
-        geom_line(data = datos2, aes(fecha, positivos),
-                  alpha = 0.3) +
-
-        #Aulas cerradas
-        geom_point_interactive(data = datos2, 
-                               aes(fecha, aulas_cerradas, tooltip = aulas_cerradas, colour = "#B22222"),
-                               size = 3, alpha = 0.5) +
-        geom_line(data = datos2, aes(fecha, aulas_cerradas),
-                  alpha = 0.3) + 
-        
-        #Tema y escalas
-        theme(axis.text.x = element_text(angle = 60, hjust = 1),
-              legend.position = "bottom") +
-        scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
-        scale_color_discrete(name = "", labels = c("Positivos", "Aulas cerradas")) +
-        
-        #Etiquetas
-        labs(title = "Positivos en Centros Educativos en el Concello de Santiago",
-             subtitle = paste("Actualización:", fechacentro),
-             caption = "Elaboración: @JKniffki | KStats®",
-             x = "", y = "") -> p100
-
-p100 <- p100 + plot_layout(heights = unit(7,"cm"))
-
-girafe(code = print(p100))
-```
-
-
 ```{r echo=F, warning=F, message=F}
 #IA 14 100mil CONCELLO DE SANTIAGO
 df <- read.csv("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/data/santiago.csv", header = T) 
@@ -665,6 +606,66 @@ ggplot() +
 
 girafe(code = print(p50))
 
+```
+
+----------------------------------------------------------
+
+Positivos en Centros Educativos del Concello de Santiago a `r fechacentro`: <font color="red"> `r santiago` </font>
+
+*Nota: Hay aulas cerradas y/o positivos que no están siendo reportados por el SERGAS.*
+
+```{r echo=FALSE, warning=F, message=FALSE}
+datos %>% filter(area_sanitaria == "Santiago", Fecha == fechacentro, concello == "SANTIAGO DE COMPOSTELA") %>%
+  select(Tipo = tipo_centro, Centro = nombre_centro, Positivos = positivos, `Aulas cerradas` = aulas_cerradas, `Centro cerrado` = centro_cerrado) %>%
+  arrange(desc(Positivos)) %>% mutate(`Centro cerrado` = toupper(`Centro cerrado`)) %>% 
+  kableExtra::kbl(caption = "Elaboración: @JKniffki | KStats®", align = "c") %>% 
+  kableExtra::column_spec(3, color = c("#5C0303")) %>% 
+  kableExtra::column_spec(4, color = c("#370463")) %>% 
+  kableExtra::column_spec(5, color = "gray10")
+  
+```
+
+```{r echo=FALSE, warning=F, message=FALSE}
+#CENTROS EDUCATIVOS CONCELLOS DE SANTIAGO
+datos <- read.csv("C:/Users/Kifirifis/Desktop/OneDrive - Universidade de Santiago de Compostela/galicianumeroteca/data/definitivo.csv", header = T)
+datos$fecha <- lubridate::as_date(datos$fecha)
+datos %>% 
+        filter(concello == "SANTIAGO DE COMPOSTELA", positivos > 0) %>% 
+        select(fecha, positivos, aulas_cerradas) %>% 
+        group_by(fecha) %>% 
+        summarise(positivos = sum(positivos), 
+                  aulas_cerradas = sum(as.numeric(aulas_cerradas))) -> datos2
+        
+ggplot() +
+        #Positivos
+        geom_point_interactive(data = datos2, 
+                               aes(fecha, positivos, tooltip = positivos, colour = "#00CD66"), 
+                               size = 3, alpha = 0.5) +
+        geom_line(data = datos2, aes(fecha, positivos),
+                  alpha = 0.3) +
+
+        #Aulas cerradas
+        geom_point_interactive(data = datos2, 
+                               aes(fecha, aulas_cerradas, tooltip = aulas_cerradas, colour = "#B22222"),
+                               size = 3, alpha = 0.5) +
+        geom_line(data = datos2, aes(fecha, aulas_cerradas),
+                  alpha = 0.3) + 
+        
+        #Tema y escalas
+        theme(axis.text.x = element_text(angle = 60, hjust = 1),
+              legend.position = "bottom") +
+        scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
+        scale_color_discrete(name = "", labels = c("Positivos", "Aulas cerradas")) +
+        
+        #Etiquetas
+        labs(title = "Positivos en Centros Educativos en el Concello de Santiago",
+             subtitle = paste("Actualización:", fechacentro),
+             caption = "Elaboración: @JKniffki | KStats®",
+             x = "", y = "") -> p100
+
+p100 <- p100 + plot_layout(heights = unit(7,"cm"))
+
+girafe(code = print(p100))
 ```
 
 *Nota: SERGAS da el primer dato (IA 14) por Concello el 21 de Noviembre y sigue sin proporcionar datos de fallecidos, altas, activos, pruebas... por Concello.*
