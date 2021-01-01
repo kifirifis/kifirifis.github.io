@@ -1,24 +1,24 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2020-12-31'
+date: '2021-01-01'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2020-12-31T13:24:26+02:00'
+lastmod: '2021-01-01T13:24:26+02:00'
 ---
 
-<font color="red"> Actualización: 31-12-2020 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 01-01-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2020-12-31" #para las etiquetas 
-fechasemaforo <- "2020-12-31"
-fsantiago <-     "2020-12-31"  
+fechaactual <-   "2021-01-01" #para las etiquetas 
+fechasemaforo <- "2021-01-01"
+fsantiago <-     "2021-01-01"  
 
 #Centros 
 fechacentro <-   "2020-12-23"
@@ -49,7 +49,7 @@ fechamapa <-     "2020-12-23"
                  background-color: gray30;
                  width: 400px">
 
-    <p style = "font-weight: bold; font-size: 18px">Tasa Positividad. Media móvil 14 días: </p>
+    <p style = "font-weight: bold; font-size: 18px">Proporción PCR+. Media móvil 14 días: </p>
 
     <pre class="contador3"
           style="background-color: gray35; color: brown; font-weight: bold; padding-left: 50px; font-size: 50px" >
@@ -117,7 +117,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, -4],
+            innerHTML: [0, -23],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -137,7 +137,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 1369],
+            innerHTML: [0, 1346],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -157,7 +157,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 6.95],
+            innerHTML: [0, 6.99],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -177,7 +177,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 115],
+            innerHTML: [0, 103],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -210,13 +210,15 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  31-12-2020 en el Área Sanitaria de Santiago se detectaron 115 nuevos casos, se dieron de alta a 117 y fallecieron 2 personas, lo que da lugar a 4 casos activos menos respecto al día 30-12-2020.`
+`A  01-01-2021 en el Área Sanitaria de Santiago se detectaron 103 nuevos casos, se dieron de alta a 124 y fallecieron 2 personas, lo que da lugar a 23 casos activos menos respecto al día 30-12-2020.` 
 
-`- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
+<img src="rmoderado.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
-`- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima.`
+<img src="rmuyalto.png" style="display: inline-block; margin: 0" /> `- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima.`
 
-`- Los ratios de los colegios no han bajado y el distanciamiento NO es óptimo.`
+<img src="rmoderado.png" style="display: inline-block; margin: 0" /> `- Los ratios de los colegios no han bajado y el distanciamiento NO es óptimo.`
+
+<!-- <img src="rmuyalto.png" style="display: inline-block; margin: 0" /> `- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días en el Concello de Santiago" NO es óptima.` -->
 
 
 Para la selección de indicadores se utilizó la guía del [*Centers for Disease Control and Prevention*](https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/indicators.html#interpretation)
@@ -283,21 +285,24 @@ ggplot() +
         
             # Cierre consumo interior bares santiago 
         geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-22"), y = 2, 
+        annotate("text", x = as_date("2020-10-21"), y = 2, 
                  label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 2) +
   
             # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-15"), y = 2, label = "Cierre hostelería", size = 2) +
+        annotate("text", x = as_date("2020-11-16"), y = 2, label = "Cierre hostelería", size = 2) +
   
             # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-25"), y = 0.8, label = "Apertura hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-24"), y = 0.8, label = "Apertura hostelería", size = 2) + 
         
             # Navidad 
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-12-21"), y = 0.8, label = "Navidad", size = 2) + 
+        annotate("text", x = as_date("2020-12-20"), y = 0.8, label = "Navidad", size = 2) + 
         
+            # Año Nuevo 
+        geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-01-05"), y = 0.8, label = "Año\nNuevo", size = 2) + 
         
         # Escalas 
         scale_alpha_identity(guide = "none") +
@@ -310,7 +315,7 @@ ggplot() +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
   
-        expand_limits(x = as_date("2020-10-30")) -> gg4
+        expand_limits(x = as_date("2021-01-07")) -> gg4
 
 girafe(code = print(gg4))
 
@@ -364,22 +369,26 @@ ggplot() +
         
           # Cierre consumo interior bares 
         geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-22"), y = 70, 
+        annotate("text", x = as_date("2020-10-21"), y = 70, 
                  label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 2) + 
   
           # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-15"), y = 55, label = "Cierre hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-16"), y = 55, label = "Cierre hostelería", size = 2) + 
         
           # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-25"), y = 25, label = "Apertura hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-24"), y = 25, label = "Apertura hostelería", size = 2) + 
         
           # Navidad
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-12-21"), y = 25, label = "Navidad", size = 2) + 
+        annotate("text", x = as_date("2020-12-20"), y = 25, label = "Navidad", size = 2) + 
   
-        # Escalas
+          # Año nuevo 
+        geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-01-05"), y = 30, label = "Año\nNuevo", size = 2) + 
+        
+          # Escalas
         
         scale_alpha_identity(guide = "none") +
         scale_y_continuous(expand = c(0, 0), limits = c(0, 320)) +
@@ -387,7 +396,7 @@ ggplot() +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
   
-        expand_limits(x = as_date("2020-10-30")) -> gg9
+        expand_limits(x = as_date("2021-01-07")) -> gg9
 
 girafe(code = print(gg9))
 ```
@@ -654,6 +663,11 @@ ggplot() +
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2020-12-23"), y = 40, 
                  label = "Navidad", size = 2) +
+        
+        # Año nuevo
+        geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2020-12-30"), y = 40, 
+                 label = "Año nuevo", size = 2) +
         
         #Etiquetas
         labs(title = "Nº casos notificados por cada 100 mil habitantes últimos 14 días \n en el Concello de Santiago",
