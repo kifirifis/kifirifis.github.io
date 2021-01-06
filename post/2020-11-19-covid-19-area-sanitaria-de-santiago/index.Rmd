@@ -1,24 +1,24 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2021-01-05'
+date: '2021-01-06'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2021-01-05T13:24:26+02:00'
+lastmod: '2021-01-06T13:24:26+02:00'
 ---
 
-<font color="red"> Actualización: 05-01-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 06-01-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2021-01-05" #para las etiquetas 
-fechasemaforo <- "2021-01-05"
-fsantiago <-     "2021-01-05"  
+fechaactual <-   "2021-01-06" #para las etiquetas 
+fechasemaforo <- "2021-01-06"
+fsantiago <-     "2021-01-06"  
 
 #Centros 
 fechacentro <-   "2020-12-23"
@@ -117,7 +117,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, 9],
+            innerHTML: [0, 106],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -137,7 +137,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 1336],
+            innerHTML: [0, 1442],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -157,7 +157,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 8.68],
+            innerHTML: [0, 8.86],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -177,7 +177,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 60],
+            innerHTML: [0, 156],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -210,7 +210,7 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  05-01-2021 en el Área Sanitaria de Santiago se detectaron 60 nuevos casos y se dieron de alta a 51, lo que da lugar a 9 casos activos más respecto al día 04-01-2021.` 
+`A  06-01-2021 en el Área Sanitaria de Santiago se detectaron 156 nuevos casos, falleció una persona y se dieron de alta a 49, lo que da lugar a 106 casos activos más respecto al día 05-01-2021.` 
 
 <img src="ralto.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
 
@@ -285,7 +285,7 @@ ggplot() +
         
             # Vuelta USC
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-09-27"), y = 1, label = "Vuelta USC", size = 2) + 
+        annotate("text", x = as_date("2020-09-28"), y = 1, label = "Vuelta USC", size = 2) + 
             
             # Cierre consumo interior bares santiago 
         geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
@@ -298,15 +298,19 @@ ggplot() +
   
             # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-24"), y = 0.8, label = "Apertura hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-23"), y = 0.8, label = "Apertura hostelería", size = 2) + 
         
             # Navidad 
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2020-12-20"), y = 0.8, label = "Navidad", size = 2) + 
         
-            # Año Nuevo 
-        geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-01-05"), y = 0.8, label = "Año\nNuevo", size = 2) + 
+        #     # Año Nuevo 
+        # geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
+        # annotate("text", x = as_date("2021-01-04"), y = 0.8, label = "Año\nNuevo", size = 2) + 
+            
+            # Vuelta al Cole Invierno 
+        geom_vline(xintercept = as_date("2021-01-08"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-01-13"), y = 2, label = "Vuelta\nal Cole", size = 2) + 
         
         # Escalas 
         scale_alpha_identity(guide = "none") +
@@ -369,7 +373,7 @@ ggplot() +
   
         # Vuelta USC
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-09-27"), y = 25, label = "Vuelta USC", size = 2) + 
+        annotate("text", x = as_date("2020-09-28"), y = 25, label = "Vuelta USC", size = 2) + 
   
         #Eventos poíticos y económicos
         
@@ -384,15 +388,19 @@ ggplot() +
         
           # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-24"), y = 25, label = "Apertura hostelería", size = 2) + 
+        annotate("text", x = as_date("2020-11-23"), y = 25, label = "Apertura hostelería", size = 2) + 
         
           # Navidad
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2020-12-20"), y = 25, label = "Navidad", size = 2) + 
   
-          # Año nuevo 
-        geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-01-05"), y = 30, label = "Año\nNuevo", size = 2) + 
+        #   # Año nuevo 
+        # geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
+        # annotate("text", x = as_date("2021-01-04"), y = 30, label = "Año\nNuevo", size = 2) + 
+          
+          # Vuelta al Cole Invierno 
+        geom_vline(xintercept = as_date("2021-01-08"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-01-13"), y = 65, label = "Vuelta\nal Cole", size = 2) + 
         
           # Escalas
         
@@ -653,16 +661,16 @@ ggplot() +
         
         # Escalas
         scale_alpha_identity(guide = "none") +
-        scale_y_continuous(expand = c(0, 0), limits = c(0, 250)) +
+        scale_y_continuous(expand = c(0, 0), limits = c(0, 300)) +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         
         # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-12-01"), y = 40, label = "Apertura hostelería", size = 2) +
+        annotate("text", x = as_date("2020-11-30"), y = 40, label = "Apertura hostelería", size = 2) +
         
         # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-17"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-12-14"), y = 40, 
+        annotate("text", x = as_date("2020-12-13"), y = 40, 
                  label = "Cierre perimetral y \n reducción de aforo", size = 2) +
         
         # Navidad
@@ -675,13 +683,18 @@ ggplot() +
         annotate("text", x = as_date("2020-12-30"), y = 40, 
                  label = "Año nuevo", size = 2) +
         
+        # Vuelta al Cole Invierno
+        geom_vline(xintercept = as_date("2021-01-08"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-01-05"), y = 40, 
+                 label = "Vuelta al Cole", size = 2) +
+        
         #Etiquetas
         labs(title = "Nº casos notificados por cada 100 mil habitantes últimos 14 días \n en el Concello de Santiago",
              subtitle = paste("Actualización:", fsantiago),
              caption = "Elaboración: @JKniffki | KStats®",
              x = "", y = "") +
         
-        expand_limits(x = as_date("2020-12-25")) -> p50
+        expand_limits(x = as_date("2021-01-10")) -> p50
 
 girafe(code = print(p50))
 
