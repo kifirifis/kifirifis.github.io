@@ -410,7 +410,7 @@ ggplot() +
           # Escalas
         
         scale_alpha_identity(guide = "none") +
-        scale_y_continuous(expand = c(0, 0), limits = c(0, 450)) +
+        scale_y_continuous(expand = c(0, 0), limits = c(0, 480)) +
   
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
@@ -666,7 +666,7 @@ ggplot() +
         
         # Escalas
         scale_alpha_identity(guide = "none") +
-        scale_y_continuous(expand = c(0, 0), limits = c(0, 450)) +
+        scale_y_continuous(expand = c(0, 0), limits = c(0, 480)) +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         
         # Apertura hostelería
