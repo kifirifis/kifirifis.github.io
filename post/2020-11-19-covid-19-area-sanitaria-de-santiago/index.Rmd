@@ -21,8 +21,8 @@ fechasemaforo <- "2021-01-21"
 fsantiago <-     "2021-01-21"  
 
 #Centros 
-fechacentro <-   "2021-01-20"
-fechamapa <-     "2021-01-20"
+fechacentro <-   "2021-01-21"
+fechamapa <-     "2021-01-21"
 ```
 
 ```{=html}
@@ -323,7 +323,7 @@ ggplot() +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
   
-        expand_limits(x = as_date("2021-01-07")) -> gg4
+        expand_limits(x = as_date("2021-02-05")) -> gg4
 
 girafe(code = print(gg4))
 
