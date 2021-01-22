@@ -21,8 +21,8 @@ fechasemaforo <- "2021-01-22"
 fsantiago <-     "2021-01-22"  
 
 #Centros 
-fechacentro <-   "2021-01-21"
-fechamapa <-     "2021-01-21"
+fechacentro <-   "2021-01-22"
+fechamapa <-     "2021-01-22"
 ```
 
 ```{=html}
@@ -212,11 +212,11 @@ source("C:/Users/Kifirifis/Desktop/Mi blog/Santiago-Covid/funsemaforo.R")
 
 `A  22-01-2021 en el Área Sanitaria de Santiago se detectaron 295 nuevos casos, se dieron de alta a 144 y fallecieron 3 personas, lo que da lugar a 148 casos activos más respecto al día 21-01-2021.` 
 
-<img src="rmuyalto.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima.`
+<img src="rmuyalto.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" NO es óptima. Riesgo de transmisión muy alto.`
 
-<img src="rmuyalto.png" style="display: inline-block; margin: 0" /> `- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima.`
+<img src="rmuyalto.png" style="display: inline-block; margin: 0" /> `- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima. Riesgo de transmisión muy alto.`
 
-<img src="rmoderado.png" style="display: inline-block; margin: 0" /> `- Los ratios de los colegios no han bajado y el distanciamiento NO es óptimo.`
+<img src="rmoderado.png" style="display: inline-block; margin: 0" /> `- Los ratios de los colegios no han bajado y el distanciamiento NO es óptimo. Riesgo de transmisión moderado.`
 
 <!-- <img src="rmuyalto.png" style="display: inline-block; margin: 0" /> `- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días en el Concello de Santiago" NO es óptima.` -->
 
