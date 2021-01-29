@@ -1,8 +1,7 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2021-01-29
-'
+date: '2021-01-29'
 categories:
   - Covid
   - Santiago
@@ -22,8 +21,8 @@ fechasemaforo <- "2021-01-29"
 fsantiago <-     "2021-01-29"  
 
 #Centros 
-fechacentro <-   "2021-01-28"
-fechamapa <-     "2021-01-28"
+fechacentro <-   "2021-01-29"
+fechamapa <-     "2021-01-29"
 ```
 
 ```{=html}
