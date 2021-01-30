@@ -11,7 +11,7 @@ tags:
 lastmod: '2021-01-30T13:24:26+02:00'
 ---
 
-<font color="red"> Actualización: 29-01-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
+<font color="red"> Actualización: 30-01-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago. Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
