@@ -21,8 +21,8 @@ fechasemaforo <- "2021-02-03"
 fsantiago <-     "2021-02-03"  
 
 #Centros 
-fechacentro <-   "2021-02-02"
-fechamapa <-     "2021-02-02"
+fechacentro <-   "2021-02-03"
+fechamapa <-     "2021-02-03"
 ```
 
 ```{=html}
@@ -481,7 +481,8 @@ ggplot() +
         #                 colour =  "red") +
 
         #Casos acumulados
-        geom_line_interactive(data = datos,  aes(tooltip = casos, fecha, casos, colour = "#00CD66"), 
+        geom_line_interactive(data = datos,  
+                              aes(tooltip = casos, fecha, casos, colour = "#00CD66"), 
                               alpha = 0.3) +
   
         geom_point_interactive(data = datos, 
@@ -534,7 +535,10 @@ ggplot() +
   geom_line(data = datos, aes(fecha, MA7incre)) +
   
   geom_point_interactive(
-                         data = datos, aes(fecha, MA7incre, tooltip = MA7incre, colour = c("#FF8C00")),
+                         data = datos, 
+                         aes(fecha, MA7incre, 
+                             tooltip = paste0("MA 7d: ", MA7incre, "\nFecha: ", fecha), 
+                             colour = c("#FF8C00")),
                          size = 2.3) +
   #Legends
   scale_color_discrete(name = "", labels = c("Incremento", "Media móvil 7d")) +
@@ -608,7 +612,8 @@ datos %>%
 ggplot() +
         #Positivos
         geom_point_interactive(data = datos2, 
-                               aes(fecha, positivos, tooltip = positivos, colour = "#00CD66"), 
+                               aes(fecha, positivos, 
+                                   tooltip = paste0("Positivos: ", positivos, "\nFecha: ", fecha), colour = "#00CD66"), 
                                size = 3, alpha = 0.5) +
         geom_line(data = datos2, aes(fecha, positivos),
                   alpha = 0.3) +
