@@ -281,24 +281,24 @@ ggplot() +
         
             # Vuelta al Cole
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-09-01"), y = 1, label = "Vuelta al Cole", size = 1.8) + 
+        annotate("text", x = as_date("2020-08-31"), y = 1, label = "Vuelta al Cole", size = 1.8) + 
         
             # Vuelta USC
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-09-29"), y = 0.6, label = "Vuelta USC", size = 1.8) + 
+        annotate("text", x = as_date("2020-09-30"), y = 0.6, label = "Vuelta USC", size = 1.8) + 
             
             # Cierre consumo interior bares santiago 
         geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-18"), y = 2, 
+        annotate("text", x = as_date("2020-10-17"), y = 2.5, 
                  label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 1.8) +
   
             # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-17"), y = 2, label = "Cierre hostelería", size = 1.8) +
+        annotate("text", x = as_date("2020-11-16"), y = 2.5, label = "Cierre\n hostelería", size = 1.8) +
   
             # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-22"), y = 0.8, label = "Apertura hostelería", size = 1.8) + 
+        annotate("text", x = as_date("2020-11-26"), y = 0.8, label = "Apertura\n hostelería", size = 1.8) + 
         
             # Navidad 
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
@@ -310,11 +310,15 @@ ggplot() +
             
             # Vuelta al Cole Invierno 
         geom_vline(xintercept = as_date("2021-01-08"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-01-13"), y = 2, label = "Vuelta\nal Cole", size = 1.8) + 
+        annotate("text", x = as_date("2021-01-14"), y = 2, label = "Vuelta\nal Cole", size = 1.8) + 
         
             # Cierre hostelería 2
         geom_vline(xintercept = as_date("2021-01-27"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-02-07"), y = 2, label = "Cierre hostelería", size = 1.8) +
+        annotate("text", x = as_date("2021-02-08"), y = 2, label = "Cierre hostelería", size = 1.8) +
+            
+            # Apertura hostelería 2
+        geom_vline(xintercept = as_date("2021-02-26"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-03-13"), y = 2, label = "Apertura hostelería", size = 1.8) +
   
         # Escalas 
         scale_alpha_identity(guide = "none") +
@@ -327,7 +331,7 @@ ggplot() +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
   
-        expand_limits(x = as_date("2021-02-11")) -> gg4
+        expand_limits(x = as_date("2021-03-20")) -> gg4
 
 girafe(code = print(gg4))
 
@@ -373,26 +377,26 @@ ggplot() +
         
         # Vuelta al cole
         geom_vline(xintercept = as_date("2020-09-10"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-09-01"), y = 25, label = "Vuelta al Cole", size = 1.8) + 
+        annotate("text", x = as_date("2020-08-31"), y = 20, label = "Vuelta al Cole", size = 1.8) + 
   
         # Vuelta USC
         geom_vline(xintercept = as_date("2020-09-21"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-09-28"), y = 25, label = "Vuelta USC", size = 1.8) + 
+        annotate("text", x = as_date("2020-09-29"), y = 20, label = "Vuelta USC", size = 1.8) + 
   
         #Eventos poíticos y económicos
         
           # Cierre consumo interior bares 
         geom_vline(xintercept = as_date("2020-11-01"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-10-19"), y = 70, 
-                 label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 1.8) + 
+        annotate("text", x = as_date("2020-10-17"), y = 70, 
+                 label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 1.6) + 
   
           # Cierre hostelería
         geom_vline(xintercept = as_date("2020-11-07"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-17"), y = 55, label = "Cierre hostelería", size = 1.8) + 
+        annotate("text", x = as_date("2020-11-15"), y = 85, label = "Cierre \nhostelería", size = 1.8) + 
         
           # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-22"), y = 25, label = "Apertura hostelería", size = 1.8) + 
+        annotate("text", x = as_date("2020-11-27"), y = 30, label = "Apertura\n hostelería", size = 1.8) + 
         
           # Navidad
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
@@ -409,11 +413,15 @@ ggplot() +
           # Cierre consumo interior bares 
         geom_vline(xintercept = as_date("2021-01-10"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2021-01-25"), y = 130, 
-                 label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 1.8) + 
+                 label = "Prohibición de \n consumo en interiores\n de bares en Santiago", size = 1.6) + 
         
-          # Cierre hostelería
+          # Cierre hostelería 2
         geom_vline(xintercept = as_date("2021-01-27"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-02-07"), y = 210, label = "Cierre hostelería", size = 1.8) + 
+        annotate("text", x = as_date("2021-02-04"), y = 230, label = "Cierre \nhostelería", size = 1.8) + 
+  
+          # Apertura hostelería 2
+        geom_vline(xintercept = as_date("2021-02-26"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-03-06"), y = 210, label = "Apertura \nhostelería", size = 1.8) + 
   
           # Escalas
         
@@ -423,7 +431,7 @@ ggplot() +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
   
-        expand_limits(x = as_date("2021-02-11")) -> gg9
+        expand_limits(x = as_date("2021-03-20")) -> gg9
 
 girafe(code = print(gg9))
 ```
@@ -684,35 +692,39 @@ ggplot() +
         
         # Apertura hostelería
         geom_vline(xintercept = as_date("2020-12-04"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-11-28"), y = 38, label = "Apertura hostelería", size = 1.8) +
+        annotate("text", x = as_date("2020-11-27"), y = 30, label = "Apertura hostelería", size = 1.6) +
         
         # Reducción de aforo 
         geom_vline(xintercept = as_date("2020-12-17"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2020-12-12"), y = 38, 
-                 label = "Cierre perimetral y \n reducción de aforo", size = 1.8) +
+        annotate("text", x = as_date("2020-12-11"), y = 30, 
+                 label = "Cierre perimetral y \n reducción de aforo", size = 1.6) +
         
         # Navidad
         geom_vline(xintercept = as_date("2020-12-25"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2020-12-22"), y = 38, 
-                 label = "Navidad", size = 1.8) +
+                 label = "Navidad", size = 1.6) +
         
         # Año nuevo
         geom_vline(xintercept = as_date("2021-01-01"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2020-12-29"), y = 38, 
-                 label = "Año \nnuevo", size = 1.8) +
+                 label = "Año \nnuevo", size = 1.6) +
         
         # Vuelta al Cole Invierno
         geom_vline(xintercept = as_date("2021-01-08"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2021-01-05"), y = 38, 
-                 label = "Vuelta al \nCole", size = 1.8) +
+                 label = "Vuelta al \nCole", size = 1.6) +
   
         # Restricción interiores hostelería
         geom_vline(xintercept = as_date("2021-01-09"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-01-16") + 0.5, y = 90, 
-                 label = "Prohibición de consumo \n en interiores de bares \n y cierre a las 18:00", size = 1.8) +
+        annotate("text", x = as_date("2021-01-17") + 0.5, y = 90, 
+                 label = "Prohibición de consumo \n en interiores de bares \n y cierre a las 18:00", size = 1.6) +
           # Cierre hostelería 2
         geom_vline(xintercept = as_date("2021-01-27"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-02-2"), y = 38, label = "Cierre hostelería", size = 1.8) +
+        annotate("text", x = as_date("2021-02-2"), y = 38, label = "Cierre hostelería", size = 1.6) +
+  
+          # Apertura hostelería 2
+        geom_vline(xintercept = as_date("2021-02-26"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-03-05"), y = 38, label = "Apertura hostelería", size = 1.6) +
         
         #Etiquetas
         labs(title = "Nº casos notificados por cada 100 mil habitantes últimos 14 días \n en el Concello de Santiago",
@@ -720,7 +732,7 @@ ggplot() +
              caption = "Elaboración: @JKniffki | KStats®",
              x = "", y = "") +
         
-        expand_limits(x = as_date("2021-02-11")) -> p50
+        expand_limits(x = as_date("2021-03-10")) -> p50
 
 girafe(code = print(p50))
 
