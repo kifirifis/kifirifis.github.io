@@ -21,8 +21,8 @@ fechasemaforo <- "2021-03-14"
 fsantiago <-     "2021-03-14"  
 
 #Centros 
-fechacentro <-   "2021-03-12"
-fechamapa <-     "2021-03-12"
+fechacentro <-   "2021-03-13"
+fechamapa <-     "2021-03-13"
 ```
 
 ```{=html}
