@@ -18,8 +18,7 @@
       <pubDate>Mon, 17 Dec 2018 21:13:14 -0500</pubDate>
       <guid>/post/2018-12-17-integrales-definidas-en-r/</guid>
       <description>
-&lt;link href=&#34;index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/post/2018-12-17-integrales-definidas-en-r/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Es realmente fácil integrar en R si sabes como hacerlo. Supongamos que el tiempo de vida de una batería es una variable aleatoria con función de densidad.&lt;/p&gt;
