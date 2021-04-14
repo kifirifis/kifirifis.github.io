@@ -1,28 +1,28 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2021-04-13'
+date: '2021-04-14'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2021-04-13T13:24:26+02:00'
+lastmod: '2021-04-14T13:24:26+02:00'
 ---
 
-<font color="red"> Actualización: 13-04-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago.  Semáforo para Centros Educativos.
+<font color="red"> Actualización: 14-04-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago.  Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2021-04-13" #para las etiquetas 
-fechasemaforo <- "2021-04-13"
-fsantiago <-     "2021-04-13"  
+fechaactual <-   "2021-04-14" #para las etiquetas 
+fechasemaforo <- "2021-04-14"
+fsantiago <-     "2021-04-14"  
 
 #Centros 
-fechacentro <-   "2021-04-10"
-fechamapa <-     "2021-04-10"
+fechacentro <-   "2021-04-13"
+fechamapa <-     "2021-04-13"
 ```
 
 ```{=html}
@@ -117,7 +117,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, 12],
+            innerHTML: [0, 0],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -157,7 +157,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 2.92],
+            innerHTML: [0, 2.82],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -177,7 +177,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 26],
+            innerHTML: [0, 20],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -210,7 +210,7 @@ source("C:\\Users\\Kifirifis\\Desktop\\Mi blog\\Santiago-Covid\\funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  13-04-2021 en el Área Sanitaria de Santiago se detectaron 26 nuevos casos, falleció 1 persona y se dieron de alta a 13, lo que da lugar a 12 casos activos más respecto al día 12-04-2021.` 
+`A  14-04-2021 en el Área Sanitaria de Santiago se detectaron 20 nuevos casos, fallecieron 0 personas y se dieron de alta a 20, lo que da lugar a 0 casos activos más respecto al día 13-04-2021.` 
 
 <img src="rmuybajo.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" está en la categoría 'Riesgo de transmisión muy bajo'.`
 
@@ -321,7 +321,7 @@ ggplot() +
         annotate("text", x = as_date("2021-03-09"), y = 1.5, label = "Apertura \nhostelería", size = 1.8) +
             # Semana santa
         geom_vline(xintercept = as_date("2021-03-29"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-04-06"), y = 1.3, label = "Restricciones \nSemana santa", size = 1.8) +
+        annotate("text", x = as_date("2021-04-06"), y = 1.3, label = "Semana santa", size = 1.8) +
   
         # Escalas 
         scale_alpha_identity(guide = "none") +
@@ -427,7 +427,7 @@ ggplot() +
         annotate("text", x = as_date("2021-03-06"), y = 210, label = "Apertura \nhostelería", size = 1.8) + 
           # Semana santa
         geom_vline(xintercept = as_date("2021-03-29"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-04-05"), y = 210, label = "Restricciones \nSemana santa", size = 1.8) + 
+        annotate("text", x = as_date("2021-04-05"), y = 210, label = "Semana santa", size = 1.8) + 
   
           # Escalas
         
@@ -733,7 +733,7 @@ ggplot() +
         annotate("text", x = as_date("2021-03-07"), y = 150, label = "Apertura hostelería", size = 1.6) +
           # Semana santa
         geom_vline(xintercept = as_date("2021-03-29"), linetype = 2, alpha = 0.6) +
-        annotate("text", x = as_date("2021-04-05"), y = 150, label = "Restricciones \nSemana santa", size = 1.6) +
+        annotate("text", x = as_date("2021-04-05"), y = 150, label = "Semana santa", size = 1.6) +
         
         #Etiquetas
         labs(title = "Nº casos notificados por cada 100 mil habitantes últimos 14 días \n en el Concello de Santiago",
