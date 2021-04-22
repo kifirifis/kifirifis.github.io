@@ -1,28 +1,28 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2021-04-21'
+date: '2021-04-22'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2021-04-21T13:24:26+02:00'
+lastmod: '2021-04-22T13:24:26+02:00'
 ---
 
-<font color="red"> Actualización: 21-04-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago.  Semáforo para Centros Educativos.
+<font color="red"> Actualización: 22-04-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago.  Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2021-04-21" #para las etiquetas 
-fechasemaforo <- "2021-04-21"
-fsantiago <-     "2021-04-21"  
+fechaactual <-   "2021-04-22" #para las etiquetas 
+fechasemaforo <- "2021-04-22"
+fsantiago <-     "2021-04-22"  
 
 #Centros 
-fechacentro <-   "2021-04-20"
-fechamapa <-     "2021-04-20"
+fechacentro <-   "2021-04-21"
+fechamapa <-     "2021-04-21"
 ```
 
 ```{=html}
@@ -210,7 +210,7 @@ source("C:\\Users\\Kifirifis\\Desktop\\Mi blog\\Santiago-Covid\\funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  21-04-2021 en el Área Sanitaria de Santiago se detectaron 23 nuevos casos, fallecieron 0 personas y se dieron de alta a 17, lo que da lugar a 6 casos activos más respecto al día 19-04-2021.` 
+`A  22-04-2021 en el Área Sanitaria de Santiago se detectaron 10 nuevos casos, fallecieron 0 personas y se dieron de alta a 21, lo que da lugar a 11 casos activos menos respecto al día 21-04-2021.` 
 
 <img src="rmuybajo.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" está en la categoría 'Riesgo de transmisión muy bajo'.`
 
