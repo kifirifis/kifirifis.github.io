@@ -1,24 +1,24 @@
 ---
 title: COVID-19 Área Sanitaria de Santiago
 author: Javier Kniffki
-date: '2021-05-08'
+date: '2021-05-10'
 categories:
   - Covid
   - Santiago
 tags:
   - JavaScript
   - R
-lastmod: '2021-05-08T13:24:26+02:00'
+lastmod: '2021-05-10T13:24:26+02:00'
 ---
 
-<font color="red"> Actualización: 08-05-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago.  Semáforo para Centros Educativos.
+<font color="red"> Actualización: 10-05-2021 </font>.[^1] COVID-19 en el Área Sanitaria de Santiago.  Semáforo para Centros Educativos.
 
 [^1]: Esta página se actualiza diariamente
 
 ```{r echo=FALSE, message=F, warning=F}
-fechaactual <-   "2021-05-08" #para las etiquetas 
-fechasemaforo <- "2021-05-08"
-fsantiago <-     "2021-05-08"  
+fechaactual <-   "2021-05-10" #para las etiquetas 
+fechasemaforo <- "2021-05-10"
+fsantiago <-     "2021-05-10"  
 
 #Centros 
 fechacentro <-   "2021-05-07"
@@ -117,7 +117,7 @@ var roundLogEl = document.querySelector(".contador");
 
         anime({
             targets: roundLogEl,
-            innerHTML: [0, -1],
+            innerHTML: [0, 6],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -137,7 +137,7 @@ var roundLogEl2 = document.querySelector(".contador2");
 
         anime({
             targets: roundLogEl2,
-            innerHTML: [0, 407],
+            innerHTML: [0, 406],
             easing: 'linear',
             round: 10, // Will round the animated value to 1 decimal
             duration: 4000
@@ -157,7 +157,7 @@ var roundLogEl3 = document.querySelector(".contador3");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 3.33],
+            innerHTML: [0, 2.67],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -177,7 +177,7 @@ var roundLogEl3 = document.querySelector(".contador4");
 
         anime({
             targets: roundLogEl3,
-            innerHTML: [0, 18],
+            innerHTML: [0, 28],
             easing: 'linear',
             round: 100, // Will round the animated value to 1 decimal
             duration: 4000
@@ -210,9 +210,9 @@ source("C:\\Users\\Kifirifis\\Desktop\\Mi blog\\Santiago-Covid\\funsemaforo.R")
 
 # Semáforo para la apertura de Centros Educativos
 
-`A  08-05-2021 en el Área Sanitaria de Santiago se detectaron 18 nuevos casos, fallecieron 0 personas y se dieron de alta a 19, lo que da lugar a 1 casos activos menos respecto al día 07-05-2021.` 
+`A  10-05-2021 en el Área Sanitaria de Santiago se detectaron 28 nuevos casos, fallecieron 0 personas y se dieron de alta a 22, lo que da lugar a 6 casos activos menos respecto al día 09-05-2021.` 
 
-<img src="rbajo.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" está en la categoría 'Riesgo de transmisión bajo'.`
+<img src="rmuybajo.png" style="display: inline-block; margin: 0" />  `- La tasa "Proporción PCR+ Media móvil 14 días" está en la categoría 'Riesgo de transmisión muy bajo'.`
 
 <img src="ralto.png" style="display: inline-block; margin: 0" /> `- La tasa "Número de casos notificados por cada cien mil habitantes en los últimos 14 días" NO es óptima. 'Riesgo de transmisión alto'.`
 
@@ -323,6 +323,10 @@ ggplot() +
         geom_vline(xintercept = as_date("2021-03-29"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2021-04-06"), y = 1.3, label = "Semana santa", size = 1.8) +
   
+            # Fin alarma
+        geom_vline(xintercept = as_date("2021-05-09"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-05-19"), y = 1.3, label = "Fin estado\nde alarma", size = 1.8) +
+  
         # Escalas 
         scale_alpha_identity(guide = "none") +
         scale_color_identity(guide = "none") +
@@ -334,11 +338,12 @@ ggplot() +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
   
-        expand_limits(x = as_date("2021-03-20")) -> gg4
+        expand_limits(x = as_date("2021-05-15")) -> gg4
 
 girafe(code = print(gg4))
 
 ```
+
 
 ## Indicador 2
 
@@ -425,9 +430,14 @@ ggplot() +
           # Apertura hostelería 2
         geom_vline(xintercept = as_date("2021-02-26"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2021-03-06"), y = 210, label = "Apertura \nhostelería", size = 1.8) + 
+  
           # Semana santa
         geom_vline(xintercept = as_date("2021-03-29"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2021-04-05"), y = 210, label = "Semana santa", size = 1.8) + 
+  
+          # Fin Alarma
+        geom_vline(xintercept = as_date("2021-05-09"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-05-19"), y = 210, label = "Fin estado\nde alarma", size = 1.8) + 
   
           # Escalas
         
@@ -437,7 +447,7 @@ ggplot() +
         scale_x_date(date_minor_breaks = "week", date_breaks = "week", date_labels = "%b %d") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + #ángulo de la etiqueta
   
-        expand_limits(x = as_date("2021-03-20")) -> gg9
+        expand_limits(x = as_date("2021-05-15")) -> gg9
 
 girafe(code = print(gg9))
 ```
@@ -731,17 +741,22 @@ ggplot() +
           # Apertura hostelería 2
         geom_vline(xintercept = as_date("2021-02-26"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2021-03-07"), y = 150, label = "Apertura hostelería", size = 1.6) +
+  
           # Semana santa
         geom_vline(xintercept = as_date("2021-03-29"), linetype = 2, alpha = 0.6) +
         annotate("text", x = as_date("2021-04-05"), y = 150, label = "Semana santa", size = 1.6) +
         
+          # Fin alarma 
+        geom_vline(xintercept = as_date("2021-05-09"), linetype = 2, alpha = 0.6) +
+        annotate("text", x = as_date("2021-05-17"), y = 150, label = "Fin estado\nde alarma", size = 1.6) +
+  
         #Etiquetas
         labs(title = "Nº casos notificados por cada 100 mil habitantes últimos 14 días \n en el Concello de Santiago",
              subtitle = paste("Actualización:", fsantiago),
              caption = "Elaboración: @JKniffki | KStats®",
              x = "", y = "") +
         
-        expand_limits(x = as_date("2021-03-10")) -> p50
+        expand_limits(x = as_date("2021-05-17")) -> p50
 
 girafe(code = print(p50))
 
